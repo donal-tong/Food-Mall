@@ -1,6 +1,5 @@
 package com.wstmall.activity;
 
-import java.util.List;
 
 import org.apache.http.Header;
 import org.json.JSONException;
@@ -17,12 +16,9 @@ import com.wstmall.activity.shoppingCart.ShoppingCartActivity;
 import com.wstmall.activity.sort.SortActivity;
 import com.wstmall.activity.user.MineActivity;
 import com.wstmall.api.GetCitys;
-import com.wstmall.api.goods.GetGoodsCats;
 import com.wstmall.api.login.GetUserInfo;
 import com.wstmall.application.Const;
-import com.wstmall.application.GoodsKinds;
 import com.wstmall.application.MyPref;
-import com.wstmall.application.GoodsKinds.GoodsKindsId;
 import com.wstmall.bean.AbstractParam;
 import com.wstmall.bean.City;
 import com.wstmall.bean.Point;
@@ -109,7 +105,6 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 
 			@Override
 			public void afterFindMe(Point point, City city,City city2) {
-				// TODO Auto-generated method stub
 				Const.cache.point = point;
 				// 城市有变化
 				if (!city2.getCityname().equals(Const.cache.city2.getCityname())) {
@@ -163,7 +158,6 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 
 	@Override
 	public void onTabChanged(String tabId) {
-		// TODO Auto-generated method stub
 
 		View view = tabPrevious;
 		view.findViewById(R.id.bottom_tabs_item_img_onclick).setVisibility(View.INVISIBLE);
@@ -240,7 +234,6 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 
 			@Override
 			public void onAnimationRepeat(Animation animation) {
-				// TODO Auto-generated method stub
 			}
 
 			// 动画的结束
@@ -307,7 +300,6 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 
 		@Override
 		public void onSuccess(int statusCode, Header[] headers, String responseBody) {
-			// TODO Auto-generated method stub
 			System.out.println("responseBody : " + responseBody);
 			try {
 				if (responseBody.startsWith("\ufeff")) {
@@ -335,7 +327,6 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 
 		@Override
 		public void onFailure(int arg0, Header[] arg1, String arg2, Throwable arg3) {
-			// TODO Auto-generated method stub
 		}
 	};
 
@@ -376,7 +367,6 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.button_no:
 				dismiss();

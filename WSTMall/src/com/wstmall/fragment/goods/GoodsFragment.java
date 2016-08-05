@@ -113,7 +113,6 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
 
 	@Override
 	public void bindDataForUIElement() {
-		// TODO Auto-generated method stub
 		// 商品图片变成正方形
 		DisplayMetrics dm = new DisplayMetrics();
 		getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -148,7 +147,6 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
 
 	@Override
 	protected void bindEvent() {
-		// TODO Auto-generated method stub
 		appraise_touch.setOnClickListener(this);
 		buy_button.setOnClickListener(this);
 		add_cart_button.setOnClickListener(this);
@@ -170,7 +168,6 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
 
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
-			// TODO Auto-generated method stub
 			if (lockTouch) {
 				return true;
 			}
@@ -238,7 +235,6 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
 
 		@Override
 		public boolean onTouch(View v, MotionEvent event) {
-			// TODO Auto-generated method stub
 			if (lockTouch) {
 				return true;
 			}
@@ -294,20 +290,17 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
 		@Override
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void beforeTextChanged(CharSequence s, int start, int count,
 				int after) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void afterTextChanged(Editable s) {
-			// TODO Auto-generated method stub
 			String tempString = buy_num_edittext.getText().toString();
 
 			// 如果输入框为空
@@ -392,7 +385,6 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.appraise_touch:
 			replaceFragment(new GoodsAppraiseFragment(goodsListBean.goodsId),
@@ -406,10 +398,8 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
 					glb = gson.fromJson(jsonobj.get("data").toString(),
 							GoodsListBean.class);
 				} catch (JsonSyntaxException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				glb.goodsAttrId=goodsListBean.priceAttrs.get(currentPosition).id;
@@ -451,10 +441,8 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
 					glb = gson.fromJson(jsonobj.get("data").toString(),
 							GoodsListBean.class);
 				} catch (JsonSyntaxException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				glb.goodsAttrId=goodsListBean.priceAttrs.get(currentPosition).id;
@@ -495,7 +483,6 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
 
 				@Override
 				public void AttrsSelect(int position) {
-					// TODO Auto-generated method stub
 					refreshAttrs(position);
 					goodsAttrsPopWindows.dismiss();
 				}

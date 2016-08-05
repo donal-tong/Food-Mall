@@ -149,7 +149,6 @@ public class MainPageFragment extends BaseFragment implements
 					}
 				}
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} finally {
 				((WSTMallApplication) getActivity().getApplication()).saveCache();
@@ -157,7 +156,6 @@ public class MainPageFragment extends BaseFragment implements
 				swipeRefreshLayout.post(new Runnable() {
 					@Override
 					public void run() {
-						// TODO Auto-generated method stub
 						swipeRefreshLayout.setRefreshing(false);
 						isSwrfRefresh = false;
 					}
@@ -181,7 +179,6 @@ public class MainPageFragment extends BaseFragment implements
 
 	@Override
 	public void bindDataForUIElement() {
-		// TODO Auto-generated method stub
 		mainPageFragment = this;
 		tWidget.changeMode(tWidget.Location_Search_Zbar_Mode);
 		initAdvertisement();
@@ -192,7 +189,6 @@ public class MainPageFragment extends BaseFragment implements
 		swipeRefreshLayout.post(new Runnable() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				swipeRefreshLayout.setRefreshing(true);
 				setCancelRefresh();
 				isSwrfRefresh = true;
@@ -204,7 +200,6 @@ public class MainPageFragment extends BaseFragment implements
 
 	OnRefreshListener listener = new OnRefreshListener() {
 		public void onRefresh() {
-			// TODO
 		}
 	};
 
@@ -216,13 +211,11 @@ public class MainPageFragment extends BaseFragment implements
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				if (isSwrfRefresh) {
 					swipeRefreshLayout.post(new Runnable() {
 
 						@Override
 						public void run() {
-							// TODO Auto-generated method stub
 							swipeRefreshLayout.setRefreshing(false);
 							isSwrfRefresh = false;
 						}
@@ -234,7 +227,6 @@ public class MainPageFragment extends BaseFragment implements
 
 	@Override
 	protected void bindEvent() {
-		// TODO Auto-generated method stub
 		nearby_businesses.setOnClickListener(this);
 		brand_hall.setOnClickListener(this);
 		self_supermarket.setOnClickListener(this);
@@ -245,7 +237,6 @@ public class MainPageFragment extends BaseFragment implements
 
 			@Override
 			public void onRefresh() {
-				// TODO Auto-generated method stub
 				refreshOperation();
 			}
 		});
@@ -253,13 +244,11 @@ public class MainPageFragment extends BaseFragment implements
 			
 			@Override
 			public void onUpOrCancelMotionEvent() {
-				// TODO Auto-generated method stub
 				
 			}
 			
 			@Override
 			public void onScrollChanged(int scrollY) {
-				// TODO Auto-generated method stub
 				Log.e("gaodu", scrollY+"");
 				int adHeight=adView.getHeight();
 				float f=(float)scrollY/(float)adHeight;
@@ -272,13 +261,11 @@ public class MainPageFragment extends BaseFragment implements
 			
 			@Override
 			public void onDownMotionEvent() {
-				// TODO Auto-generated method stub
 				
 			}
 			
 			@Override
 			public void doOnBottom() {
-				// TODO Auto-generated method stub
 				
 			}
 		});
@@ -296,7 +283,6 @@ public class MainPageFragment extends BaseFragment implements
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		Intent intent;
 		switch (v.getId()) {
 		case R.id.nearby_businesses:
@@ -383,7 +369,6 @@ public class MainPageFragment extends BaseFragment implements
 
 				@Override
 				public boolean onTouch(View v, MotionEvent event) {
-					// TODO Auto-generated method stub
 					return true;
 				}
 			});
@@ -391,12 +376,10 @@ public class MainPageFragment extends BaseFragment implements
 		adViewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 					@Override
 					public void onPageScrollStateChanged(int arg0) {
-						// TODO Auto-generated method stub
 					}
 
 					@Override
 					public void onPageScrolled(int arg0, float arg1, int arg2) {
-						// TODO Auto-generated method stub
 					}
 
 					@Override
@@ -469,7 +452,6 @@ public class MainPageFragment extends BaseFragment implements
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
 			Intent intent = new Intent(getActivity(), GoodListActivity.class);
 			intent.putExtra(GoodsListFragment.Mode_GoodsCatIdOne,
 					Integer.parseInt(Const.cache.getRecommendGoodsList().get(position).catId));

@@ -10,12 +10,10 @@ public class BusinessHomeListView extends ListView {
 	private int endY;
 	public BusinessHomeListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent ev) {
-		// TODO Auto-generated method stub
 		switch (ev.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 			startY=(int) ev.getY();

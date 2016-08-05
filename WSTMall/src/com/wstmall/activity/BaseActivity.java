@@ -54,6 +54,7 @@ public abstract class BaseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		((WSTMallApplication) getApplication()).addActivityToList(this);
+		Log.e("CurrentActivity", getLocalClassName().toString());
 		baseFragmentManager = getFragmentManager();
 		imageLoader = ImageLoader.getInstance();
 		gson = new Gson();
@@ -102,7 +103,6 @@ public abstract class BaseActivity extends Activity {
 
 		@Override
 		public void onSuccess(int statusCode, Header[] headers, String responseBody) {
-			// TODO Auto-generated method stub
 			System.out.println("responseBody : " + responseBody);
 			dimissDialog();
 			try {
@@ -131,7 +131,6 @@ public abstract class BaseActivity extends Activity {
 
 		@Override
 		public void onFailure(int arg0, Header[] arg1, String arg2, Throwable arg3) {
-			// TODO Auto-generated method stub
 			dimissDialog();
 			requestFailed();
 		}
@@ -156,19 +155,19 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	protected void requestFailed() {
-		Toast.makeText(this, getString(R.string.net_error), Toast.LENGTH_SHORT);
+		Toast.makeText(this, getString(R.string.net_error), Toast.LENGTH_SHORT).show();
 	}
 
 	public void loadOnImage(String uri, ImageView imageView) {
-		imageLoader.displayImage(uri, imageView, ((WSTMallApplication) getApplication()).imageEllipseOptions);
+		imageLoader.displayImage(uri, imageView, (WSTMallApplication.imageEllipseOptions));
 	}
 
 	public void loadOnRectangleImage(String uri, ImageView imageView) {
-		imageLoader.displayImage(uri, imageView, ((WSTMallApplication) getApplication()).imageRectangleOptions);
+		imageLoader.displayImage(uri, imageView, (WSTMallApplication.imageRectangleOptions));
 	}
 
 	public void loadOnRoundImage(String uri, ImageView imageView) {
-		imageLoader.displayImage(uri, imageView, ((WSTMallApplication) getApplication()).imageRoundOptions);
+		imageLoader.displayImage(uri, imageView, (WSTMallApplication.imageRoundOptions));
 	}
 
 	public static void reLogin() {
@@ -209,7 +208,6 @@ public abstract class BaseActivity extends Activity {
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		// requestCode标示请求的标示 resultCode表示有数据
 		if (requestCode == CaptureActivity.sign && resultCode == RESULT_OK) {
