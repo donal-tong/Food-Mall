@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:showu="http://schemas.android.com/apk/res/com.zhy_9.food_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
+
+    <com.wstmall.widget.MyPullRefreshListView
+        android:id="@+id/pull_business_refresh_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="48dp"
+        android:scrollbars="none" />
+
+    <LinearLayout
+        android:id="@+id/ll_sign"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <com.wstmall.widget.TitleWidget
+        android:id="@id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        showu:center_view_text="首页" />
+
+    <RelativeLayout
+        android:id="@+id/sort_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/tv_result_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/app_bg" />
+
+        <ImageView
+            android:id="@+id/sort_ic"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/app_bg" />
+
+        <TextView
+            android:id="@+id/tv_sort"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/sort_ic"
+            android:gravity="right|center_vertical"
+            android:text="筛选"
+            android:textColor="@color/app_bg" />
+    </RelativeLayout>
+
+</RelativeLayout>

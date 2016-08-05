@@ -1,0 +1,81 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <!-- 自定义loading dialog -->
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimAmount">0</item>
+    </style>
+
+    <style name="title_view_center">
+        <item name="android:textSize">@dimen/title</item>
+        <item name="android:textColor">@color/white</item>
+        <!-- <item name="android:textStyle">bold</item> -->
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="title_view_left">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/title_back</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="title_view_right">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/tran_bg</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Translucent_NoTitle" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="customProgressBar" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/custom_progress_bar</item>
+        <item name="android:layout_width">21dip</item>
+        <item name="android:layout_height">21dip</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+        <style name="MyDialogStyle" parent="@android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="time_popwindow_anim_style">
+    <item name="android:windowEnterAnimation">@anim/popshow</item>
+    <item name="android:windowExitAnimation">@anim/pophidden</item>
+  </style>
+      <style name="sort_popwindow_anim_style">
+    <item name="android:windowEnterAnimation">@anim/pop_right_show</item>
+    <item name="android:windowExitAnimation">@anim/pop_right_hidden</item>
+  </style>
+</resources>

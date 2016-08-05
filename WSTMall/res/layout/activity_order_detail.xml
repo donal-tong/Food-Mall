@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:showu="http://schemas.android.com/apk/res/com.zhy_9.food_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <com.wstmall.widget.TitleWidget
+        android:id="@id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        showu:center_view_text=""
+        showu:left_visibility="visible"
+        showu:right_visibility="invisible" />
+
+    <ListView
+        android:id="@+id/lv_order_detail_goods"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp"
+        android:scrollbars="none" >
+    </ListView>    
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line"
+        android:orientation="horizontal" />
+
+    <RelativeLayout
+        android:id="@+id/re_bot"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="#333333"
+         >
+
+        <TextView
+            android:id="@+id/tv_order_pay_handle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/myred"
+            android:gravity="center"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:textColor="@color/white" 
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/tv_order_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/tv_order_pay_handle"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:textColor="@color/white" 
+            android:visibility="gone"
+            />
+               <TextView
+            android:id="@+id/tv_order_handle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/app_bg"
+             android:textColor="@color/white" 
+            android:gravity="center"
+            android:paddingLeft="18dp"
+            android:layout_toLeftOf="@id/tv_order_pay_handle"
+            android:paddingRight="18dp"
+             android:visibility="gone"
+            />
+        	
+    </RelativeLayout>
+</RelativeLayout>

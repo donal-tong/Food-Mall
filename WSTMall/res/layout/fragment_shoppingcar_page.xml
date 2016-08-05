@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:showu="http://schemas.android.com/apk/res/com.zhy_9.food_test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <com.wstmall.widget.TitleWidget
+        android:id="@id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        showu:center_view_text="购物车"
+        showu:left_visibility="invisible" />
+
+    <ExpandableListView
+        android:id="@+id/el_shoppingcar"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:groupIndicator="@null"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/ll_null_spc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical" 
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/null_sp_cart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="购物车空空的!"
+            android:textSize="20sp"
+            android:textColor="@color/gray_deep_other" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/ll_balance"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:background="#404040"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <CheckBox
+            android:id="@+id/cb_chioc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:button="@drawable/checkbox_selector" />
+
+        <TextView
+            android:id="@+id/tv_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/cb_chioc"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/shopping_balance"
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@color/app_bg"
+            android:text="结算"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/shopping_delete"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="4dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/round_white"
+            android:text="删除"
+            android:textColor="@color/app_bg"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/button_space"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_tabs_height"
+        android:orientation="horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+  	android:background="@drawable/boder"
+    android:paddingBottom="1dp"
+    android:orientation="vertical" >
+        <ImageView
+            android:id="@+id/recommend_first"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
+          />
+
+        <TextView
+            android:id="@+id/tv_main_shop_name_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:paddingLeft="8dp"
+            android:lines="1"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_main_goods_name_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:lines="2"
+            android:textColor="@color/grey"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical" >
+            <TextView
+                android:id="@+id/tv_main_price_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#CC0001"
+                android:layout_centerVertical="true"
+                android:paddingLeft="6dp"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/im_shoppingcar_first"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="2dp"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@null"
+                android:background="@drawable/shopping_cart_icon" />
+        </RelativeLayout>
+</LinearLayout>

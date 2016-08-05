@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    
+    <!-- 常用颜色库 -->
+     <color name="gold">#b89766</color>
+    <color name="gold_deep">#91785D</color>
+    <color name="list_line">#ADD3EF</color>
+    <color name="fan_list_sign">#1E6DA0</color>
+    <color name="fan_list_name">#070D6B</color>
+    <color name="orange_bg">#FF8502</color>
+    <color name="tab_gray_bg">#fff3f3f3</color>
+    <color name="list_select_bg">#8000ff00</color>
+    <color name="progressbar_bg">#30000000</color>
+    <color name="text_num_gray">#333</color>
+    <color name="pink_bg">#ffdddd</color>
+    <color name="pink">#6d5144</color>
+    <color name="text_green">#61a615</color>
+    <color name="text_blue">#33b2d5</color>
+    <color name="text_light_blue">#5ABEEC</color>
+    <color name="blue_deep">#12A3D9</color>
+    <color name="orange_shallow">#F3EDE4</color>
+    <color name="orange_deep">#A33904</color>
+    <color name="green">#37F32E</color>
+    <color name="green_normal_btn">#0AA20A</color>
+    <color name="orange_normal_btn">#F25D07</color>
+    <color name="yellow_normal_btn">#F3B700</color>
+    <color name="green_deep">#2D4207</color>
+    <color name="grey_deep">#F5F1E6</color>
+    <color name="grey_shallow">#F1F1F1</color>
+    <color name="grey_hint_text">#B2B2B2</color>
+    <color name="gray_deep_other">#858585</color>
+    <color name="light_black">#404040</color>
+    <color name="red">#ED1C24</color>
+    <color name="myred">#E10904</color>
+    <color name="red_shalllow">#FFF5F4</color>
+    <color name="text_common_color">#686868</color>
+    <color name="text_orange_color">#FF7F2E</color>
+    <color name="app_bg">#F6772A</color>
+    <color name="trans">#00000000</color>
+    <color name="tab_trans">#648ba3</color>
+    <color name="line_grey">#CBCBCB</color>
+    <color name="title_bar_bg">#F3672C</color>
+    <color name="title_bar_press">#FF8000</color>
+    <color name="bottom_bar_bg">#07446B</color>
+    <color name="bottom_bar_item_on">#48B0ED</color>
+    <color name="black">#ff000000</color>
+    <color name="white">#ffffff</color>
+    <color name="grey">#ff58616d</color>
+    <color name="grey_light">#E2E2E2</color>
+    <color name="orange">#FF7200</color>
+    <color name="male_bg">#D5E8F6</color>
+    <color name="fe_male_bg">#F8E6E6</color>
+    <color name="sort_gray">#F0EFF4</color>
+    <color name="sort_grey">#f0f0f0</color>
+    
+</resources>

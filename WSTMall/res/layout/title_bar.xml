@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/title_bar_height"
+    android:background="#F6773A" >
+
+    <RelativeLayout
+        android:id="@+id/left"
+        android:layout_width="@dimen/title_item_width"
+        android:layout_height="@dimen/title_item_height"
+        android:layout_weight="0"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/pressed_dark_bg" >
+
+        <Button
+            android:id="@+id/left_view"
+            style="@style/title_view_left"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:clickable="false"
+            android:singleLine="true" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/title_location"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="0"
+        android:gravity="center_vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/location_icon" />
+
+        <TextView
+            android:id="@+id/title_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_large" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/title_search_edittext_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/round_title_search_bg"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+         >
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/search_black_icon" />
+
+        <com.wstmall.widget.ClearEditText
+            android:id="@+id/title_search_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="搜索附近商品"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:layout_marginLeft="5dp"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/title_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:background="@drawable/round_title_search_bg"
+        android:visibility="gone"
+         >
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/search_black_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="搜索附近商品"
+            android:layout_marginLeft="5dp"
+            android:singleLine="true"
+            android:textSize="@dimen/text_size_small" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/center_view"
+            style="@style/title_view_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:ellipsize="end"
+            android:maxEms="8"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/title_zbar"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="0"
+        android:src="@drawable/qr_code_icon"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/right"
+        android:layout_width="@dimen/title_item_height"
+        android:layout_height="@dimen/title_item_width"
+        android:layout_weight="0"
+        android:background="@drawable/pressed_dark_bg" >
+
+        <Button
+            android:id="@+id/right_view"
+            style="@style/title_view_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:clickable="false"
+            android:singleLine="true" />
+    </RelativeLayout>
+
+</LinearLayout>
