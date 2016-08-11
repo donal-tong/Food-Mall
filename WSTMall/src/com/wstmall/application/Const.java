@@ -16,10 +16,10 @@ public class Const {
 	
 	public static final String FILE_NAME="WSTMall";//缓存以及Loading图等存放目录的名称
 	
-	public static final String BASE_URL = "http://dev-wstfull.wstmall.com/";
-	public static final String API_BASE_URL = "http://dev-wstfull.wstmall.com/index.php/App/Apis/";
-//	public static final String BASE_URL = "http://192.168.1.134/index.php/WebApp/Index/index.html";
-//	public static final String API_BASE_URL = "http://192.168.1.134/index.php/App/Apis/";
-	public static final Point defaultPoint = new Point(40.657366, 109.874611);
+//	public static final String BASE_URL = "http://dev-wstfull.wstmall.com/";
+//	public static final String API_BASE_URL = "http://dev-wstfull.wstmall.com/index.php/App/Apis/";
+	public static final String BASE_URL = "http://sp.mai022.com/";
+	public static final String API_BASE_URL = "http://sp.mai022.com/index.php/App/Apis/";
+	public static final Point defaultPoint = new Point(39.1333601320,117.2109781636);
 	
 }

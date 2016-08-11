@@ -15,9 +15,9 @@ import com.wstmall.util.EAJson;
 public class CacheBean implements Serializable {
 
 	private static final String TAG = "么么哒";
-	public Point point = new Point(23.050914, 113.393996);// 经纬度坐标
-	public City city = new City("440100", "广州市"); // 城市
-	public City city2 = new City("440106", "天河区"); // 县区
+	public Point point = new Point(39.0849967352,117.1994308610);// 经纬度坐标
+	public City city = new City("120000", "天津市"); // 城市
+	public City city2 = new City("120101", "和平区"); // 县区
 	
 	/*public Point point = new Point(24.445374, 118.103766);// 经纬度坐标
 	public City city = new City("350200", "厦门市"); // 城市
