@@ -18,8 +18,10 @@ public class Const {
 	
 //	public static final String BASE_URL = "http://dev-wstfull.wstmall.com/";
 //	public static final String API_BASE_URL = "http://dev-wstfull.wstmall.com/index.php/App/Apis/";
-	public static final String BASE_URL = "http://sp.mai022.com/";
-	public static final String API_BASE_URL = "http://sp.mai022.com/index.php/App/Apis/";
+//	public static final String BASE_URL = "http://sp.mai022.com/";
+//	public static final String API_BASE_URL = "http://sp.mai022.com/index.php/App/Apis/";
+	public static final String BASE_URL = "http://www.tjfood365.com/";
+	public static final String API_BASE_URL = "http://www.tjfood365.com/index.php/App/Apis/";
 	public static final Point defaultPoint = new Point(39.1333601320,117.2109781636);
 	
 }

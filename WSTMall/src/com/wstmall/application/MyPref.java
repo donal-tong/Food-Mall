@@ -6,6 +6,13 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 
+
+/**
+ * 设置sharedprefernces
+ * 存取tokenid和cache_json
+ * @author ZHY_9
+ *
+ */
 public class MyPref {
 
 	private static MyPref instance;

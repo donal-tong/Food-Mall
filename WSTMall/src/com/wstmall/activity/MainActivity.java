@@ -32,6 +32,7 @@ import android.app.Dialog;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -79,6 +80,7 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bottom_tabs);
 		mHost = (TabHost) findViewById(android.R.id.tabhost);
+		mHost.setBackgroundColor(Color.WHITE);
 		MyPref.getInstance(this);
 		mainActivity = this;
 		gson = new Gson();
@@ -120,13 +122,13 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 	// tab由左数起 0 1 2 3 4
 	private void setupIntent() {
 
-		mHost.addTab(createTab("0", R.drawable.tab_home_page, R.drawable.tab_home_page_touch, new Intent(this,
+		mHost.addTab(createTab("0", R.drawable.home_icon, R.drawable.home_icon_touch, new Intent(this,
 				MainPageActivity.class)));
-		mHost.addTab(createTab("1", R.drawable.tab_sort, R.drawable.tab_sort_touch,
+		mHost.addTab(createTab("1", R.drawable.catagory_icon, R.drawable.catagory_icon_touch,
 				new Intent(this, SortActivity.class)));
-		mHost.addTab(createTab("2", R.drawable.tab_shopping_cart, R.drawable.tab_shopping_cart_touch, new Intent(this,
+		mHost.addTab(createTab("2", R.drawable.goods_cart_icon, R.drawable.goods_cart_touch_icon, new Intent(this,
 				ShoppingCartActivity.class)));
-		mHost.addTab(createTab("3", R.drawable.tab_mine, R.drawable.tab_mine_touch,
+		mHost.addTab(createTab("3", R.drawable.mine_icon, R.drawable.mine_icon_touch,
 				new Intent(this, MineActivity.class)));
 
 		tabPrevious = mHost.getTabWidget().getChildTabViewAt(0);

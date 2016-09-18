@@ -75,6 +75,10 @@ public class MainPageFragment extends BaseFragment implements
 	private ViewGroup tipGroup;
 
 	// 导航菜单
+	/**
+	 * 首页8格功能
+	 * 
+	 */
 	private View menuView;
 	private ImageButton nearby_businesses;
 	private ImageButton brand_hall;
@@ -429,7 +433,7 @@ public class MainPageFragment extends BaseFragment implements
 					R.layout.mainpage_recommend_item, null);
 			TextView tv_recommendation_name = (TextView) review
 					.findViewById(R.id.tv_recommendation_name);
-			ImageView bt_main_more = (ImageView) review
+			TextView bt_main_more = (TextView) review
 					.findViewById(R.id.bt_main_more);
 			MyHorizontalScrollView mHorizontalScrollView = (MyHorizontalScrollView) review
 					.findViewById(R.id.id_horizontalScrollView);

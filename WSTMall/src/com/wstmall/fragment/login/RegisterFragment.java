@@ -4,37 +4,48 @@ package com.wstmall.fragment.login;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhy_9.food_test.R;
 import com.wstmall.activity.BaseActivity;
+import com.wstmall.activity.MainActivity;
+import com.wstmall.activity.user.LoginActivity;
 import com.wstmall.activity.user.MineActivity;
 import com.wstmall.api.login.Login;
 import com.wstmall.api.login.Register;
 import com.wstmall.application.Const;
 import com.wstmall.bean.User;
 import com.wstmall.fragment.BaseFragment;
+import com.wstmall.fragment.mainPage.MainPageFragment;
 import com.wstmall.fragment.user.MineFragment;
 import com.wstmall.util.FragmentView;
 import com.wstmall.util.InjectView;
 import com.wstmall.widget.ClearEditText;
 
 
-@FragmentView(id = R.layout.fragment_register)
+@FragmentView(id = R.layout.register_new_fragment)
 public class RegisterFragment extends BaseFragment implements View.OnClickListener {
 
 	@InjectView(id = R.id.fragment_register_register)
 	View registButton;
 	@InjectView(id = R.id.fragment_register_name)
-	ClearEditText nameEditText;
+	EditText nameEditText;
 	@InjectView(id = R.id.fragment_register_psw)
-	ClearEditText pswEditText;
+	EditText pswEditText;
 	@InjectView(id = R.id.fragment_register_psw_again)
 	ClearEditText pswAgainEditText;
+	@InjectView(id = R.id.back_to_home_register)
+	TextView backTo;
+	@InjectView(id = R.id.fragment_login_forget)
+	TextView toLogin;
 
 	private Register register = new Register();
 
@@ -48,6 +59,9 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
 	protected void bindEvent() {
 		// TODO Auto-generated method stub
 		registButton.setOnClickListener(this);
+		tWidget.setVisibility(View.GONE);
+		backTo.setOnClickListener(this);
+		toLogin.setOnClickListener(this);
 	}
 
 	@Override
@@ -91,6 +105,18 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
 				register.registerKey = registerKeyString;
 				request(register);
 			}
+			break;
+		case R.id.back_to_home_register:
+			MainActivity.mHost.getTabWidget().setVisibility(View.VISIBLE);
+            MainActivity.mHost.setCurrentTab(0);
+			Intent backIntent = new Intent(getActivity(), MainActivity.class);
+			Log.e("回到首页", "register_back_to_home");
+			startActivity(backIntent);
+			break;
+		case R.id.fragment_login_forget:
+			Intent intent = new Intent(getActivity(), LoginActivity.class);
+			Log.e("立即登陆", "register_back_to_home");
+			startActivity(intent);
 			break;
 		}
 	}

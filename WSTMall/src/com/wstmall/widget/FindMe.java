@@ -3,6 +3,7 @@ package com.wstmall.widget;
 import android.app.Activity;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View.MeasureSpec;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationListener;
@@ -17,7 +18,7 @@ public class FindMe implements AMapLocationListener {
 	private Activity activity;
 	private FindMeCallback findMeCallback;
 	private LocationManagerProxy mLocationManagerProxy;
-
+	
 	public FindMe(Activity activity, FindMeCallback findMeCallback) {
 		this.activity = activity;
 		this.findMeCallback = findMeCallback;

@@ -57,7 +57,8 @@
                     android:id="@+id/ll_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal"
+                    android:visibility="gone" >
 
                     <ImageView
                         android:id="@+id/im_goods_star_first"
@@ -118,9 +119,8 @@
                     android:layout_height="33dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="2dp"
-                    android:background="@drawable/point_cart_yellow"
                     android:padding="5dp"
-                    android:src="@drawable/touch_cart_nm" />
+                    android:src="@drawable/shopping_cart_icon" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

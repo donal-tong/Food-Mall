@@ -9,26 +9,29 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhy_9.food_test.R;
 import com.wstmall.activity.BaseActivity;
 import com.wstmall.activity.MainActivity;
+import com.wstmall.activity.mainPage.MainPageActivity;
 import com.wstmall.activity.user.MineActivity;
 import com.wstmall.activity.user.RegisterActivity;
 import com.wstmall.api.login.Login;
 import com.wstmall.application.Const;
 import com.wstmall.bean.User;
 import com.wstmall.fragment.BaseFragment;
+import com.wstmall.fragment.mainPage.MainPageFragment;
+import com.wstmall.fragment.user.EditUserInfoFragment;
 import com.wstmall.fragment.user.MineFragment;
 import com.wstmall.util.FragmentView;
 import com.wstmall.util.InjectView;
-import com.wstmall.widget.ClearEditText;
 import com.zbar.lib.decode.FinishListener;
 
 
-@FragmentView(id = R.layout.fragment_login)
+@FragmentView(id = R.layout.login_new_fragment)
 public class LoginFragment extends BaseFragment implements View.OnClickListener {
 
 	public final static String fromMainActivity = "FromMainActivity";
@@ -36,15 +39,17 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
 	@InjectView(id = R.id.fragment_login_regist)
 	View registButton;
 	@InjectView(id = R.id.fragment_login_name)
-	ClearEditText nameEditText;
+	EditText nameEditText;
 	@InjectView(id = R.id.fragment_login_psw)
-	ClearEditText pswEditText;
+	EditText pswEditText;
 	@InjectView(id = R.id.fragment_login_login)
 	Button loginButton;
 	@InjectView(id = R.id.fragment_login_forget)
 	View forgetButton;
 	@InjectView(id = R.id.tv_phone_register)
 	private TextView tv_phone_register;
+	@InjectView(id = R.id.back_to_home)
+	private TextView backTo;
 	
 	private boolean isFromMainActivity = false;
 
@@ -71,9 +76,10 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
 	@Override
 	public void bindDataForUIElement() {
 		// TODO Auto-generated method stub
-		if (isFromMainActivity) {
-			tWidget.getLeftView().setVisibility(View.INVISIBLE);
-		}
+//		if (isFromMainActivity) {
+//			tWidget.getLeftView().setVisibility(View.INVISIBLE);
+//		}
+		tWidget.setVisibility(View.GONE);
 	}
 
 	@Override
@@ -82,8 +88,9 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
 		registButton.setOnClickListener(this);
 		loginButton.setOnClickListener(this);
 		forgetButton.setOnClickListener(this);
+		backTo.setOnClickListener(this);
 		//tv_phone_register.setOnClickListener(this);
-		tv_phone_register.setVisibility(View.GONE);
+//		tv_phone_register.setVisibility(View.GONE);
 	}
 
 	@Override
@@ -134,6 +141,11 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
 			 * Intent intent = new Intent(getActivity(), MainActivity.class);
 			 * getActivity().startActivity(intent);
 			 */
+			break;
+			
+		case R.id.back_to_home:
+			MainActivity.mHost.getTabWidget().setVisibility(View.VISIBLE);
+            MainActivity.mHost.setCurrentTab(0);
 			break;
 	/*	case R.id.tv_phone_register:
 			replaceFragment(new PhoneRegisterFragment(),true);

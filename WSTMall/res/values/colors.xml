@@ -53,5 +53,8 @@
     <color name="fe_male_bg">#F8E6E6</color>
     <color name="sort_gray">#F0EFF4</color>
     <color name="sort_grey">#f0f0f0</color>
+    <color name="yellow_2">#f37b1d</color>
+    <color name="separate_line">#e6e6e6</color>
+    <color name="manager_background">#f0f0f0</color>
     
 </resources>

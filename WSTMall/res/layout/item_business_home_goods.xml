@@ -61,9 +61,8 @@
             android:id="@+id/iv_add_spc"
             android:layout_width="33dp"
             android:layout_height="33dp"
-            android:background="@drawable/point_cart_yellow"
             android:padding="5dp"
-            android:src="@drawable/touch_cart_nm" />
+            android:src="@drawable/shopping_cart_icon" />
     </LinearLayout>
 
     <ImageView

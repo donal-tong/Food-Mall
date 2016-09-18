@@ -38,7 +38,6 @@ import com.wstmall.util.http.RequestType;
 import com.wstmall.widget.LoadingDialog;
 import com.zbar.lib.CaptureActivity;
 
-
 public abstract class BaseActivity extends Activity {
 
 	private ImageLoader imageLoader;
@@ -102,7 +101,8 @@ public abstract class BaseActivity extends Activity {
 	TextHttpResponseHandler textHttpResponseHandler = new TextHttpResponseHandler() {
 
 		@Override
-		public void onSuccess(int statusCode, Header[] headers, String responseBody) {
+		public void onSuccess(int statusCode, Header[] headers,
+				String responseBody) {
 			System.out.println("responseBody : " + responseBody);
 			dimissDialog();
 			try {
@@ -110,19 +110,24 @@ public abstract class BaseActivity extends Activity {
 					responseBody = responseBody.substring(1);
 				}
 				if (responseBody.indexOf("{") > -1) {
-					responseBody = responseBody.substring(responseBody.indexOf("{"));
+					responseBody = responseBody.substring(responseBody
+							.indexOf("{"));
 					JSONObject response = new JSONObject(responseBody);
 					if (response.getInt("status") == -1000) {
-						Toast.makeText(BaseActivity.this, "用户令牌已过期，请重新登录", Toast.LENGTH_SHORT).show();
+						Toast.makeText(BaseActivity.this, "用户令牌已过期，请重新登录",
+								Toast.LENGTH_SHORT).show();
 						reLogin();
 						return;
 					} else if (response.getInt("status") == 1) {
 						requestSuccess(param.getA(), response.toString());
 					} else {
-						Toast.makeText(BaseActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+						Toast.makeText(BaseActivity.this,
+								response.getString("msg"), Toast.LENGTH_SHORT)
+								.show();
 					}
 				} else {
-					Toast.makeText(BaseActivity.this, "请求出错，请重试！", Toast.LENGTH_SHORT).show();
+					Toast.makeText(BaseActivity.this, "请求出错，请重试！",
+							Toast.LENGTH_SHORT).show();
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -130,7 +135,8 @@ public abstract class BaseActivity extends Activity {
 		}
 
 		@Override
-		public void onFailure(int arg0, Header[] arg1, String arg2, Throwable arg3) {
+		public void onFailure(int arg0, Header[] arg1, String arg2,
+				Throwable arg3) {
 			dimissDialog();
 			requestFailed();
 		}
@@ -141,12 +147,14 @@ public abstract class BaseActivity extends Activity {
 			JSONObject jsonobj;
 			try {
 				jsonobj = new JSONObject(conent);
-				jsonobj = new JSONObject(jsonobj.getJSONObject("data").toString());
+				jsonobj = new JSONObject(jsonobj.getJSONObject("data")
+						.toString());
 				tempCity.setCityid(jsonobj.getString("areaId"));
 				tempCity2.setCityid(jsonobj.getString("areaId2"));
 				Const.cache.city = tempCity;
 				Const.cache.city2 = tempCity2;
-				//MainPageFragment.mainPageFragment.GetAdsNoDialog();
+				Log.e("citys", "city" + tempCity + "city2" + tempCity2);
+				// MainPageFragment.mainPageFragment.GetAdsNoDialog();
 				MainPageFragment.mainPageFragment.refreshOperation();
 				MainPageFragment.mainPageFragment.refreshCity();
 			} catch (JSONException e) {
@@ -155,19 +163,23 @@ public abstract class BaseActivity extends Activity {
 	}
 
 	protected void requestFailed() {
-		Toast.makeText(this, getString(R.string.net_error), Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, getString(R.string.net_error), Toast.LENGTH_SHORT)
+				.show();
 	}
 
 	public void loadOnImage(String uri, ImageView imageView) {
-		imageLoader.displayImage(uri, imageView, (WSTMallApplication.imageEllipseOptions));
+		imageLoader.displayImage(uri, imageView,
+				(WSTMallApplication.imageEllipseOptions));
 	}
 
 	public void loadOnRectangleImage(String uri, ImageView imageView) {
-		imageLoader.displayImage(uri, imageView, (WSTMallApplication.imageRectangleOptions));
+		imageLoader.displayImage(uri, imageView,
+				(WSTMallApplication.imageRectangleOptions));
 	}
 
 	public void loadOnRoundImage(String uri, ImageView imageView) {
-		imageLoader.displayImage(uri, imageView, (WSTMallApplication.imageRoundOptions));
+		imageLoader.displayImage(uri, imageView,
+				(WSTMallApplication.imageRoundOptions));
 	}
 
 	public static void reLogin() {
@@ -214,39 +226,50 @@ public abstract class BaseActivity extends Activity {
 			// 处理二维码传回的String
 			if (data.getStringExtra(CaptureActivity.Scan_type).equals("goods")) {
 				Intent intent = new Intent(this, GoodsActivity.class);
-				intent.putExtra(GoodsActivity.goodsID, data.getStringExtra(CaptureActivity.Scan_content));
+				intent.putExtra(GoodsActivity.goodsID,
+						data.getStringExtra(CaptureActivity.Scan_content));
 				startActivity(intent);
-			}else if(data.getStringExtra(CaptureActivity.Scan_type).equals("url")){
+			} else if (data.getStringExtra(CaptureActivity.Scan_type).equals(
+					"url")) {
 				Intent intent = new Intent(this, HtmlViewActivity.class);
 				intent.putExtra("title", "二维码网站");
-				intent.putExtra("Url", data.getStringExtra(CaptureActivity.Scan_content));
+				intent.putExtra("Url",
+						data.getStringExtra(CaptureActivity.Scan_content));
 				startActivity(intent);
 			}
 
-		} else if (requestCode == SelectLocationActivity.sign && resultCode == RESULT_OK) {
-			Const.cache.point = (Point) data.getSerializableExtra(SelectLocationActivity.Point);
+		} else if (requestCode == SelectLocationActivity.sign
+				&& resultCode == RESULT_OK) {
+			Const.cache.point = (Point) data
+					.getSerializableExtra(SelectLocationActivity.Point);
 
 			// 判断城市是否有变化
-			if (!((City) data.getSerializableExtra(SelectLocationActivity.City2)).getCityname().equals(
-					Const.cache.city2.getCityname())) {
-				tempCity2 = (City) data.getSerializableExtra(SelectLocationActivity.City2);
-				tempCity = (City) data.getSerializableExtra(SelectLocationActivity.City);
+			if (!((City) data
+					.getSerializableExtra(SelectLocationActivity.City2))
+					.getCityname().equals(Const.cache.city2.getCityname())) {
+				tempCity2 = (City) data
+						.getSerializableExtra(SelectLocationActivity.City2);
+				tempCity = (City) data
+						.getSerializableExtra(SelectLocationActivity.City);
 				getCitys.key = tempCity.getCityname();
 				getCitys.key2 = tempCity2.getCityname();
 				requestNoDialog(getCitys);
 			}
-		} else if (requestCode == SearchActivity.sign && resultCode == RESULT_OK) {
-			String searchTarget = data.getStringExtra(SearchActivity.SearchTarget_String);
+		} else if (requestCode == SearchActivity.sign
+				&& resultCode == RESULT_OK) {
+			String searchTarget = data
+					.getStringExtra(SearchActivity.SearchTarget_String);
 			// 解决的商品列表重复问题
-				Intent intent = new Intent(this, GoodListActivity.class);
-				intent.putExtra(GoodsListFragment.SearchTarget, searchTarget);
-				startActivity(intent);
+			Intent intent = new Intent(this, GoodListActivity.class);
+			intent.putExtra(GoodsListFragment.SearchTarget, searchTarget);
+			startActivity(intent);
 		}
 
 	}
 
 	public String whatFragmentTopNow() {
-		return baseFragmentManager.findFragmentById(android.R.id.content).getClass().getName();
+		return baseFragmentManager.findFragmentById(android.R.id.content)
+				.getClass().getName();
 	}
 
 	public boolean isEmptyFragmentManager() {
@@ -257,9 +280,11 @@ public abstract class BaseActivity extends Activity {
 		}
 	}
 
-	public void replaceFragment(BaseFragment newFragment, boolean isAddToBackStack) {
+	public void replaceFragment(BaseFragment newFragment,
+			boolean isAddToBackStack) {
 		String tag = getClass().getSimpleName();
-		FragmentTransaction transaction = baseFragmentManager.beginTransaction();
+		FragmentTransaction transaction = baseFragmentManager
+				.beginTransaction();
 		transaction.replace(android.R.id.content, newFragment, tag);
 		if (isAddToBackStack) {
 			transaction.addToBackStack(tag);

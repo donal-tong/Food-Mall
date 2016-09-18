@@ -2,98 +2,198 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-          <LinearLayout
-                android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:paddingBottom="15dp" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/nearby_businesses"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/mainpager_nearby_businesses"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal" >
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="分类" />
+        </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                     android:gravity="center_horizontal"
-                    android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
 
-                    <ImageButton
-                        android:id="@+id/nearby_businesses"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/mainpager_nearby_businesses"
-                        android:contentDescription="@null" />
+            <ImageButton
+                android:id="@+id/brand_hall"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/mainpager_brand_hall"
+                android:contentDescription="@null" />
 
-                    <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="附近商家" />
-                </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="品牌街" />
+        </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                     android:gravity="center_horizontal"
-                    android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
 
-                    <ImageButton
-                        android:id="@+id/brand_hall"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/mainpager_brand_hall"
-                        android:contentDescription="@null" />
+            <ImageButton
+                android:id="@+id/self_supermarket"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/mainpager_self_supermarket"
+                android:contentDescription="@null" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="品牌馆" />
-                </LinearLayout>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="店铺街" />
+        </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                     android:gravity="center_horizontal"
-                    android:orientation="vertical" >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
 
-                    <ImageButton
-                        android:id="@+id/self_supermarket"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/mainpager_self_supermarket"
-                        android:contentDescription="@null" />
+            <ImageButton
+                android:id="@+id/my_order"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/mainpager_my_order"
+                android:contentDescription="@null" />
 
-                    <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="自营超市" />
-                </LinearLayout>
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="我的订单" />
+        </LinearLayout>
+    </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
 
-                    <ImageButton
-                        android:id="@+id/my_order"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/mainpager_my_order"
-                        android:contentDescription="@null" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
 
-                    <TextView
-                        android:layout_width="60dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="我的订单" />
-                </LinearLayout>
-            </LinearLayout>   
+            <ImageButton
+                android:id="@+id/activity"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/activity"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="活动" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/hot_sell"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/hot_sell"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="热销" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/new_goods"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/new_goods"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:text="新品" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/help_tips"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/help"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="帮助" />
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

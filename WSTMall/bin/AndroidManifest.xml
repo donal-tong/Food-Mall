@@ -44,23 +44,27 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme" >
-        
-<!-- 高德正式密钥 -->
+
+        <!-- 高德正式密钥 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="fd411460eb69212a14547a6162cc472c" />
-        
-                <!-- 高德测试密钥 -->
-<!--         <meta-data
+
+        <!-- 高德测试密钥 -->
+        <!--
+             <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="98097698aa27b99700b33569a5908171" /> -->
+            android:value="98097698aa27b99700b33569a5908171" />
+        -->
+
 
         <!-- 程序的启动页面 -->
         <activity
             android:name="com.wstmall.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" >
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -72,13 +76,13 @@
         <activity
             android:name="com.wstmall.activity.mainPage.MainPageActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-             />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.wstmall.activity.shoppingCart.ShoppingCartActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
-             android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.wstmall.activity.shoppingCart.ShoppingCartWithoutMainpageActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -90,9 +94,7 @@
         <activity
             android:name="com.wstmall.activity.user.MineActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            
-             /> 
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.wstmall.activity.imagecrop.CropActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -100,13 +102,13 @@
         <activity
             android:name="com.wstmall.activity.nearbybusiness.ToSelfSupermarketActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait" 
-            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden" />
         <activity
             android:name="com.wstmall.activity.user.RegisterActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-             />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.wstmall.activity.widget.SelectLocationActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -131,6 +133,7 @@
         <activity
             android:name="com.wstmall.activity.user.LoginActivity"
             android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.wstmall.activity.nearbybusiness.NearbyBusinessActivity"
@@ -151,19 +154,16 @@
         <activity
             android:name="com.wstmall.activity.order.goods.OrderForGoodsActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-             />
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.wstmall.activity.order.OrderDetailActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-             />
-                <activity
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.wstmall.activity.order.AddAppraisesActivity"
             android:configChanges="keyboardHidden|orientation"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-             />
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

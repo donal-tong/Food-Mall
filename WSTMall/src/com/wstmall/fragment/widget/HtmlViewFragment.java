@@ -6,6 +6,7 @@ import com.wstmall.fragment.BaseFragment;
 import com.wstmall.util.FragmentView;
 import com.wstmall.util.InjectView;
 
+import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -54,6 +55,7 @@ public class HtmlViewFragment extends BaseFragment {
 	}
 
 	private void loading() {
+		Log.e("url", Url);
 		mWebview.loadUrl(Url);
 	}
 

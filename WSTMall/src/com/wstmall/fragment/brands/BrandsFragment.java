@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -35,6 +36,7 @@ public class BrandsFragment extends BaseFragment {
 	private BrandsAdapter brandsadapter;
 	@Override
 	protected void requestSuccess(String url, String data) {
+		Log.e("getBrands", "url:" + url + "\n data:" + data);
 		if (url.contains(getbrand.getA())) {
 			JSONObject jsonobj;
 			try {
@@ -57,7 +59,7 @@ public class BrandsFragment extends BaseFragment {
 	@Override
 	public void bindDataForUIElement() {
 		// TODO Auto-generated method stub
-		tWidget.setCenterViewText("品牌馆");
+		tWidget.setCenterViewText("品牌街");
 		brandsbeanlist=new ArrayList<Brandsbean>();
 		brandsadapter=new BrandsAdapter(getActivity(), brandsbeanlist);
 		gd_brand.setAdapter(brandsadapter);

@@ -28,7 +28,8 @@ import com.wstmall.util.FragmentView;
 import com.wstmall.util.InjectView;
 
 
-@FragmentView(id = R.layout.fragment_personal_center)
+//@FragmentView(id = R.layout.fragment_personal_center)
+@FragmentView(id = R.layout.person_center_new_fragment)
 public class MineFragment extends BaseFragment implements View.OnClickListener {
 
 	@InjectView(id = R.id.ib_personimg)
@@ -43,8 +44,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 	@InjectView(id = R.id.person_order)
 	private RelativeLayout person_order;
 	
-	@InjectView(id = R.id.person_message)
-	private RelativeLayout person_message;
+//	@InjectView(id = R.id.person_message)
+//	private RelativeLayout person_message;
 	
 	@InjectView(id = R.id.person_info)
 	private RelativeLayout person_info;
@@ -79,6 +80,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 	
 	@InjectView(id = R.id.tv_way_eva)
 	private TextView tv_way_eva;
+	
+	@InjectView(id = R.id.quit_login)
+	private Button quit;
 	
 	private GetOrdersStatus getOrdersStatus=new GetOrdersStatus();
 	
@@ -141,17 +145,21 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 			evaIntent.putExtra("orderType", 4);
 			startActivity(evaIntent);
 			break;
+			
+		case R.id.quit_login:
+			confirLogout();
+			break;
 		}
 	}
 	private void initOrderTips(){
-		ll_way_pay.getBackground().setAlpha(100);
-		ll_way_accept.getBackground().setAlpha(100);
-		ll_way_receive.getBackground().setAlpha(100);
-		ll_way_eva.getBackground().setAlpha(100);
-		ll_way_pay.setOnClickListener(this);
-		ll_way_accept.setOnClickListener(this);
-		ll_way_receive.setOnClickListener(this);
-		ll_way_eva.setOnClickListener(this);
+//		ll_way_pay.getBackground().setAlpha(100);
+//		ll_way_accept.getBackground().setAlpha(100);
+//		ll_way_receive.getBackground().setAlpha(100);
+//		ll_way_eva.getBackground().setAlpha(100);
+//		ll_way_pay.setOnClickListener(this);
+//		ll_way_accept.setOnClickListener(this);
+//		ll_way_receive.setOnClickListener(this);
+//		ll_way_eva.setOnClickListener(this);
 	}
 	private void confirLogout() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -183,7 +191,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 		tWidget.setTitleAlpha(0);
 		tWidget.right.setVisibility(View.VISIBLE);
 		tv_person_name.setText(Const.user.getName());	
-		tv_person_points.setText(Const.user.userScore);
+		tv_person_points.setText("积分："  + Const.user.userScore);
 		if(Const.user.userPhoto!=null&&!Const.user.userPhoto.equals("")){
 			loadOnRoundImage(Const.BASE_URL + Const.user.userPhoto, ib_personimg);
 		}
@@ -196,10 +204,11 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 	protected void bindEvent() {
 		// TODO Auto-generated method stub
 		person_order.setOnClickListener(this);
-		person_message.setOnClickListener(this);
+//		person_message.setOnClickListener(this);
 		person_info.setOnClickListener(this);
 		person_shippingaddress.setOnClickListener(this);
 		person_safty.setOnClickListener(this);
+		quit.setOnClickListener(this);
 	}
 	@Override
 	public void rightClick() {
