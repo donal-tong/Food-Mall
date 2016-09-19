@@ -86,6 +86,8 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 		gson = new Gson();
 		initTestin();
 		setupIntent();
+		tempCity = new City();
+		tempCity2 = new City();
 		initLocation();
 		GetUserInfo();
 		initEnd_location();
@@ -132,7 +134,7 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 				new Intent(this, MineActivity.class)));
 
 		tabPrevious = mHost.getTabWidget().getChildTabViewAt(0);
-		mHost.setCurrentTab(3);
+//		mHost.setCurrentTab(3);
 		mHost.setOnTabChangedListener(this);
 		mHost.setCurrentTab(0);
 	}
@@ -340,6 +342,8 @@ public class MainActivity extends TabActivity implements TabHost.OnTabChangeList
 				jsonobj = new JSONObject(jsonobj.getJSONObject("data").toString());
 				tempCity.setCityid(jsonobj.getString("areaId"));
 				tempCity2.setCityid(jsonobj.getString("areaId2"));
+				tempCity.setCityname(jsonobj.getString("areaName"));
+				tempCity2.setCityname(jsonobj.getString("areaName2"));
 				new ChangeCityDialog(this).show();
 			} catch (JSONException e) {
 			}

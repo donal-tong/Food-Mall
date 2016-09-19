@@ -68,16 +68,19 @@ public class SortFragment extends BaseFragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				 lastLeftSelectView.setBackgroundResource(R.color.white);
+//				 lastLeftSelectView.setBackgroundResource(R.color.white);
+				 
 				TextView lasttv = (TextView) lastLeftSelectView
 						.findViewById(R.id.title_side);
-				lasttv.setTextColor(Color.parseColor("#000000"));
+//				lasttv.setTextColor(Color.parseColor("#000000"));
 				lastLeftSelectPosition = position;
-				 view.setBackgroundResource(R.color.sort_grey);
+//				view.setBackgroundResource(R.color.sort_grey);
 				TextView tv = (TextView) view.findViewById(R.id.title_side);
-				tv.setTextColor(Color.parseColor("#FF6666"));
+//				tv.setTextColor(Color.parseColor("#FF6666"));
 //				tv.setBackgroundColor(Color.parseColor("white"));
+//				tv.setBackgroundColor(Color.WHITE);
 				lastLeftSelectView = view;
+				lastLeftSelectView.setBackgroundColor(Color.WHITE);
 				FragmentTransaction fragmentTransaction = getChildFragmentManager()
 						.beginTransaction();
 				fragmentTransaction.replace(R.id.right_list,
@@ -142,13 +145,13 @@ public class SortFragment extends BaseFragment {
 					.setText(goodsKindsId.getName().replace("、", "\n"));
 
 			// 复用的时候，确定颜色
-			if (lastLeftSelectPosition == position) {
-				 convertView.setBackgroundResource(R.color.sort_grey);
-				holder.title_side.setTextColor(Color.parseColor("#FF6666"));
-			} else {
-				 convertView.setBackgroundResource(R.color.white);
-				holder.title_side.setTextColor(Color.parseColor("#000000"));
-			}
+//			if (lastLeftSelectPosition == position) {
+//				 convertView.setBackgroundResource(R.color.sort_grey);
+//				holder.title_side.setTextColor(Color.parseColor("#FF6666"));
+//			} else {
+//				 convertView.setBackgroundResource(R.color.white);
+//				holder.title_side.setTextColor(Color.parseColor("#000000"));
+//			}
 
 			// 初始化lastLeftSelectView
 			if (lastLeftSelectView == null

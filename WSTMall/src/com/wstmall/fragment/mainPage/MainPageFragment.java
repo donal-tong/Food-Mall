@@ -253,7 +253,6 @@ public class MainPageFragment extends BaseFragment implements
 			
 			@Override
 			public void onScrollChanged(int scrollY) {
-				Log.e("gaodu", scrollY+"");
 				int adHeight=adView.getHeight();
 				float f=(float)scrollY/(float)adHeight;
 				if(f<=1){

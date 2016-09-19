@@ -16,8 +16,8 @@ public class CacheBean implements Serializable {
 
 	private static final String TAG = "么么哒";
 	public Point point = new Point(39.0849967352,117.1994308610);// 经纬度坐标
-	public City city = new City("120000", "天津市"); // 城市
-	public City city2 = new City("120101", "和平区"); // 县区
+	public City city = new City("820302", "天津市"); // 城市
+	public City city2 = new City("820308", "和平区"); // 县区
 	
 	/*public Point point = new Point(24.445374, 118.103766);// 经纬度坐标
 	public City city = new City("350200", "厦门市"); // 城市
@@ -91,7 +91,9 @@ public class CacheBean implements Serializable {
 		flag = true;
 		for (int i = 0; i < Const.cache.shoppingCartList.size(); i++) {
 			if (Const.cache.shoppingCartList.get(i).goodsId
-					.equals(bean.goodsId)&&Const.cache.shoppingCartList.get(i).goodsAttrId.equals(bean.goodsAttrId)) {
+					.equals(bean.goodsId)&&
+					Const.cache.shoppingCartList.get(i).goodsAttrId
+					.equals(bean.goodsAttrId)) {
 				Log.i(TAG, "购物车存在相同商品");
 				Const.cache.shoppingCartList.get(i).goodscount = Const.cache.shoppingCartList
 						.get(i).goodscount + 1;

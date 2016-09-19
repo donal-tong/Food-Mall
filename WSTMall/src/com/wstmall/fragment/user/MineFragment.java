@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -58,16 +59,16 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 	
 	//订单显示
 	@InjectView(id = R.id.ll_way_pay)
-	private LinearLayout ll_way_pay;
+	private RelativeLayout ll_way_pay;
 	
 	@InjectView(id = R.id.ll_way_accept)
-	private LinearLayout ll_way_accept;
+	private RelativeLayout ll_way_accept;
 	
 	@InjectView(id = R.id.ll_way_receive)
-	private LinearLayout ll_way_receive;
+	private RelativeLayout ll_way_receive;
 	
 	@InjectView(id = R.id.ll_way_eva)
-	private LinearLayout ll_way_eva;
+	private RelativeLayout ll_way_eva;
 	
 	@InjectView(id = R.id.tv_way_pay)
 	private TextView tv_way_pay;
@@ -156,10 +157,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 //		ll_way_accept.getBackground().setAlpha(100);
 //		ll_way_receive.getBackground().setAlpha(100);
 //		ll_way_eva.getBackground().setAlpha(100);
-//		ll_way_pay.setOnClickListener(this);
-//		ll_way_accept.setOnClickListener(this);
-//		ll_way_receive.setOnClickListener(this);
-//		ll_way_eva.setOnClickListener(this);
+		ll_way_pay.setOnClickListener(this);
+		ll_way_accept.setOnClickListener(this);
+		ll_way_receive.setOnClickListener(this);
+		ll_way_eva.setOnClickListener(this);
 	}
 	private void confirLogout() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -186,14 +187,16 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 	@Override
 	public void bindDataForUIElement() {
 		// TODO Auto-generated method stub
-		tWidget.setCenterViewText("会员中心");
-		tWidget.setRightBtnText("注销");
-		tWidget.setTitleAlpha(0);
-		tWidget.right.setVisibility(View.VISIBLE);
+//		tWidget.setCenterViewText("会员中心");
+//		tWidget.setRightBtnText("注销");
+//		tWidget.setTitleAlpha(0);
+//		tWidget.right.setVisibility(View.VISIBLE);
 		tv_person_name.setText(Const.user.getName());	
 		tv_person_points.setText("积分："  + Const.user.userScore);
+		Log.e("userphoto", Const.user.userPhoto);
 		if(Const.user.userPhoto!=null&&!Const.user.userPhoto.equals("")){
-			loadOnRoundImage(Const.BASE_URL + Const.user.userPhoto, ib_personimg);
+			Log.e("userphoto", Const.user.userPhoto + "+++++++++");
+			loadOnRoundImage(Const.BASE_URL + Const.user.userPhoto, ib_personimg, 80);
 		}
 		getOrdersStatus.tokenId=Const.cache.getTokenId();
 		requestNoDialog(getOrdersStatus);

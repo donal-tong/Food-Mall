@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>  
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">   
 <!-- 连框颜色值 --><item>   
-      <shape>   
+      <shape >   
             <solid android:color="#E2E2E2" />   
       </shape>   
 </item>   

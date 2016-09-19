@@ -16,6 +16,10 @@ import java.util.List;
  *
  */
 public class RecommendGoodsBean implements Serializable {	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String catId;
 	public String catName;
 	public List<GoodsListBean> goodlistbean;

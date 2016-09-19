@@ -56,5 +56,6 @@
     <color name="yellow_2">#f37b1d</color>
     <color name="separate_line">#e6e6e6</color>
     <color name="manager_background">#f0f0f0</color>
+    <color name="red_app">#e23c3c</color>
     
 </resources>

@@ -8,6 +8,10 @@ import java.util.List;
 
 public class GoodsListBean implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String shopName;//店铺名称
 	public String shopId;//店铺ID
 	public String goodsId;//商品ID

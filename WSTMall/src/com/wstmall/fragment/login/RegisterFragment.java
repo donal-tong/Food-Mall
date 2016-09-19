@@ -114,8 +114,14 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
 			startActivity(backIntent);
 			break;
 		case R.id.fragment_login_forget:
-			Intent intent = new Intent(getActivity(), LoginActivity.class);
-			Log.e("立即登陆", "register_back_to_home");
+//			Intent intent = new Intent(getActivity(), LoginActivity.class);
+//			Log.e("立即登陆", "register_back_to_home");
+//			startActivity(intent);
+			
+			MainActivity.mHost.getTabWidget().setVisibility(View.VISIBLE);
+            MainActivity.mHost.setCurrentTab(3);
+			Intent intent = new Intent(getActivity(), MainActivity.class);
+			Log.e("回到首页", "register_back_to_home");
 			startActivity(intent);
 			break;
 		}

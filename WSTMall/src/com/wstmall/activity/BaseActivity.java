@@ -17,7 +17,9 @@ import com.google.gson.Gson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.TextHttpResponseHandler;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.zhy_9.food_test.R;
 import com.wstmall.activity.goodlist.GoodListActivity;
 import com.wstmall.activity.goods.GoodsActivity;
@@ -180,6 +182,16 @@ public abstract class BaseActivity extends Activity {
 	public void loadOnRoundImage(String uri, ImageView imageView) {
 		imageLoader.displayImage(uri, imageView,
 				(WSTMallApplication.imageRoundOptions));
+	}
+	public void loadOnRoundImage(String uri, ImageView imageView, int size){
+		imageLoader.displayImage(uri, imageView, new DisplayImageOptions.Builder()
+		.showImageOnLoading(R.drawable.person_img) // 设置图片下载期间显示的图片
+		.showImageForEmptyUri(R.drawable.person_img) // 设置图片Uri为空或是错误的时候显示的图片
+		.showImageOnFail(R.drawable.person_img) // 设置图片加载或解码过程中发生错误显示的图片
+		.cacheInMemory(true) // 设置下载的图片是否缓存在内存中
+		.cacheOnDisk(true) // 设置下载的图片是否缓存在SD卡中
+		.displayer(new RoundedBitmapDisplayer(size)) // 设置成圆型图片
+		.build());
 	}
 
 	public static void reLogin() {

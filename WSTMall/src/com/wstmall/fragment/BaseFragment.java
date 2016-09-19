@@ -50,6 +50,7 @@ public abstract class BaseFragment extends Fragment implements TitleWidget.IOnCl
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		FragmentView fragmentView = this.getClass().getAnnotation(FragmentView.class);
+		Log.e("currentFragment", getActivity().getLocalClassName().toString());
 		conteView = inflater.inflate(fragmentView.id(), container, false);
 		return conteView;
 	}
@@ -118,6 +119,9 @@ public abstract class BaseFragment extends Fragment implements TitleWidget.IOnCl
 	
 	public void loadOnRoundImage(String uri, ImageView imageView) {
 		((BaseActivity) getActivity()).loadOnRoundImage(uri,imageView);
+	}
+	public void loadOnRoundImage(String uri, ImageView imageView, int size) {
+		((BaseActivity) getActivity()).loadOnRoundImage(uri,imageView, size);
 	}
 
 	public abstract void bindDataForUIElement();

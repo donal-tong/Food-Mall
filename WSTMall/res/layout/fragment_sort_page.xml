@@ -28,7 +28,8 @@
             android:divider="@null"
             android:dividerHeight="2dp"
             android:scrollbars="none"
-            android:background="@color/white" />
+            android:background="@color/manager_background"
+            android:listSelector="@drawable/item_selector" />
  
         <ImageView
             android:layout_width="0.8dp"
