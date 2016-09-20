@@ -55,7 +55,6 @@ import com.wstmall.widget.MyHorizontalScrollView;
 import com.wstmall.widget.ObservableScrollView;
 import com.wstmall.widget.ObservableScrollView.Callbacks;
 
-
 @FragmentView(id = R.layout.fragment_mainpage)
 public class MainPageFragment extends BaseFragment implements
 		View.OnClickListener {
@@ -64,8 +63,8 @@ public class MainPageFragment extends BaseFragment implements
 	private ImageView[] tips, mImageViews;
 	private GetAds getads;
 	private GetGoodsCatAndGoods getgoodcatandgoods = new GetGoodsCatAndGoods();
-//	private List<Advertisement> advertisementlist;
-//	private List<RecommendGoodsBean> recommendgoodlist;// 分类合集
+	// private List<Advertisement> advertisementlist;
+	// private List<RecommendGoodsBean> recommendgoodlist;// 分类合集
 	private AdAdapter adadapter;
 	private boolean isEnterOrderLoading = false;
 
@@ -95,6 +94,7 @@ public class MainPageFragment extends BaseFragment implements
 	@InjectView(id = R.id.swipeRefreshLayout)
 	private SwipeRefreshLayout swipeRefreshLayout;
 	private boolean isSwrfRefresh;
+
 	@Override
 	protected void requestSuccess(String url, String data) {
 		if (url.contains(getads.getA())) {
@@ -115,7 +115,7 @@ public class MainPageFragment extends BaseFragment implements
 
 			} finally {
 				lv_main_pager.removeAllViews();
-				initAdvertisement(); 
+				initAdvertisement();
 				lv_main_pager.addView(menuView);
 				getgoodcatandgoods.areaId2 = Const.cache.city.getCityid();
 				Log.i(TAG, "城市ID" + Const.cache.city.getCityid());
@@ -155,7 +155,8 @@ public class MainPageFragment extends BaseFragment implements
 			} catch (JSONException e) {
 				e.printStackTrace();
 			} finally {
-				((WSTMallApplication) getActivity().getApplication()).saveCache();
+				((WSTMallApplication) getActivity().getApplication())
+						.saveCache();
 				initReGood();
 				swipeRefreshLayout.post(new Runnable() {
 					@Override
@@ -245,31 +246,31 @@ public class MainPageFragment extends BaseFragment implements
 			}
 		});
 		pl_scrollVeiw.setCallbacks(new Callbacks() {
-			
+
 			@Override
 			public void onUpOrCancelMotionEvent() {
-				
+
 			}
-			
+
 			@Override
 			public void onScrollChanged(int scrollY) {
-				int adHeight=adView.getHeight();
-				float f=(float)scrollY/(float)adHeight;
-				if(f<=1){
-				tWidget.setTitleAlpha((int)(255*f));
-				}else{
+				int adHeight = adView.getHeight();
+				float f = (float) scrollY / (float) adHeight;
+				if (f <= 1) {
+					tWidget.setTitleAlpha((int) (255 * f));
+				} else {
 					tWidget.setTitleAlpha(255);
 				}
 			}
-			
+
 			@Override
 			public void onDownMotionEvent() {
-				
+
 			}
-			
+
 			@Override
 			public void doOnBottom() {
-				
+
 			}
 		});
 
@@ -279,7 +280,7 @@ public class MainPageFragment extends BaseFragment implements
 		Const.cache.removeAdvList();
 		Const.cache.removeRgList();
 		lv_main_pager.removeAllViews();
-		//bindDataForUIElement();
+		// bindDataForUIElement();
 		GetAds();
 		bindEvent();
 	}
@@ -312,7 +313,7 @@ public class MainPageFragment extends BaseFragment implements
 			break;
 		}
 	}
- 
+
 	@Override
 	public void onResume() {
 		super.onResume();
@@ -355,55 +356,59 @@ public class MainPageFragment extends BaseFragment implements
 				android.R.color.holo_green_light,
 				android.R.color.holo_orange_light,
 				android.R.color.holo_red_light);
-		if(Const.cache.getAdvertisementList()!=null&&Const.cache.getAdvertisementList().size()!=0){
-		adView = View.inflate(getActivity(), R.layout.fragment_mainpager_ad,
-				null);
-		adViewpager = (ViewPager) adView.findViewById(R.id.adviewPager);
-		tipGroup = (ViewGroup) adView.findViewById(R.id.viewGroup);
-		settips(); 
-		setimage();
-		adadapter = new AdAdapter(mImageViews, this, Const.cache.getAdvertisementList());
-		adViewpager.setAdapter(adadapter);
-		if (Const.cache.getAdvertisementList().size() != 1) {
-			handler.sendEmptyMessageAtTime(1, 3000);
-			adViewpager.setCurrentItem((mImageViews.length) * 100);
-		} else {
-			adViewpager.setOnTouchListener(new OnTouchListener() {
+		if (Const.cache.getAdvertisementList() != null
+				&& Const.cache.getAdvertisementList().size() != 0) {
+			adView = View.inflate(getActivity(),
+					R.layout.fragment_mainpager_ad, null);
+			adViewpager = (ViewPager) adView.findViewById(R.id.adviewPager);
+			tipGroup = (ViewGroup) adView.findViewById(R.id.viewGroup);
+			settips();
+			setimage();
+			adadapter = new AdAdapter(mImageViews, this,
+					Const.cache.getAdvertisementList());
+			adViewpager.setAdapter(adadapter);
+			if (Const.cache.getAdvertisementList().size() != 1) {
+				handler.sendEmptyMessageAtTime(1, 3000);
+				adViewpager.setCurrentItem((mImageViews.length) * 100);
+			} else {
+				adViewpager.setOnTouchListener(new OnTouchListener() {
 
-				@Override
-				public boolean onTouch(View v, MotionEvent event) {
-					return true;
-				}
-			});
-		}
-		adViewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 					@Override
-					public void onPageScrollStateChanged(int arg0) {
+					public boolean onTouch(View v, MotionEvent event) {
+						return true;
 					}
-
-					@Override
-					public void onPageScrolled(int arg0, float arg1, int arg2) {
-					}
-
-					@Override
-					public void onPageSelected(int arg0) {
-
-						if (Const.cache.getAdvertisementList().size() != 1) {
-							handler.removeMessages(1);
-							handler.sendEmptyMessageDelayed(1, 3000);
+				});
+			}
+			adViewpager
+					.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+						@Override
+						public void onPageScrollStateChanged(int arg0) {
 						}
-						int selectItems = arg0 % mImageViews.length;
-						for (int i = 0; i < tips.length; i++) {
-							if (i == selectItems) {
-								tips[i].setBackgroundResource(R.drawable.onfocuse);
-							} else {
-								tips[i].setBackgroundResource(R.drawable.focuse);
+
+						@Override
+						public void onPageScrolled(int arg0, float arg1,
+								int arg2) {
+						}
+
+						@Override
+						public void onPageSelected(int arg0) {
+
+							if (Const.cache.getAdvertisementList().size() != 1) {
+								handler.removeMessages(1);
+								handler.sendEmptyMessageDelayed(1, 3000);
+							}
+							int selectItems = arg0 % mImageViews.length;
+							for (int i = 0; i < tips.length; i++) {
+								if (i == selectItems) {
+									tips[i].setBackgroundResource(R.drawable.onfocuse);
+								} else {
+									tips[i].setBackgroundResource(R.drawable.focuse);
+								}
 							}
 						}
-					}
 
-				});
-		lv_main_pager.addView(adView);
+					});
+			lv_main_pager.addView(adView);
 		}
 	}
 
@@ -426,24 +431,27 @@ public class MainPageFragment extends BaseFragment implements
 	 * INIT LISTVIEW
 	 */
 	private void initReGood() {
-		if(Const.cache.getRecommendGoodsList()!=null){
-		for (int i = 0; i < Const.cache.getRecommendGoodsList().size(); i++) {
-			View review = View.inflate(getActivity(),
-					R.layout.mainpage_recommend_item, null);
-			TextView tv_recommendation_name = (TextView) review
-					.findViewById(R.id.tv_recommendation_name);
-			TextView bt_main_more = (TextView) review
-					.findViewById(R.id.bt_main_more);
-			MyHorizontalScrollView mHorizontalScrollView = (MyHorizontalScrollView) review
-					.findViewById(R.id.id_horizontalScrollView);
-			bt_main_more.setOnClickListener(new MoreGoodsOnClickListener(i));
-			tv_recommendation_name.setText(Const.cache.getRecommendGoodsList().get(i).catName);
-			HorizontalScrollViewAdapter mAdapter = new HorizontalScrollViewAdapter(
-					getActivity(), Const.cache.getRecommendGoodsList().get(i).goodlistbean);
-			mHorizontalScrollView.initDatas(mAdapter);
-			lv_main_pager.addView(review);
+		if (Const.cache.getRecommendGoodsList() != null) {
+			for (int i = 0; i < Const.cache.getRecommendGoodsList().size(); i++) {
+				View review = View.inflate(getActivity(),
+						R.layout.mainpage_recommend_item, null);
+				TextView tv_recommendation_name = (TextView) review
+						.findViewById(R.id.tv_recommendation_name);
+				TextView bt_main_more = (TextView) review
+						.findViewById(R.id.bt_main_more);
+				MyHorizontalScrollView mHorizontalScrollView = (MyHorizontalScrollView) review
+						.findViewById(R.id.id_horizontalScrollView);
+				bt_main_more
+						.setOnClickListener(new MoreGoodsOnClickListener(i));
+				tv_recommendation_name.setText(Const.cache
+						.getRecommendGoodsList().get(i).catName);
+				HorizontalScrollViewAdapter mAdapter = new HorizontalScrollViewAdapter(
+						getActivity(), Const.cache.getRecommendGoodsList().get(
+								i).goodlistbean);
+				mHorizontalScrollView.initDatas(mAdapter);
+				lv_main_pager.addView(review);
+			}
 		}
-	   }
 	}
 
 	class MoreGoodsOnClickListener implements OnClickListener {
@@ -456,8 +464,10 @@ public class MainPageFragment extends BaseFragment implements
 		@Override
 		public void onClick(View v) {
 			Intent intent = new Intent(getActivity(), GoodListActivity.class);
-			intent.putExtra(GoodsListFragment.Mode_GoodsCatIdOne,
-					Integer.parseInt(Const.cache.getRecommendGoodsList().get(position).catId));
+			intent.putExtra(
+					GoodsListFragment.Mode_GoodsCatIdOne,
+					Integer.parseInt(Const.cache.getRecommendGoodsList().get(
+							position).catId));
 			startActivity(intent);
 		}
 
@@ -482,19 +492,28 @@ public class MainPageFragment extends BaseFragment implements
 	}
 
 	private void setimage() {
-		if (Const.cache.getAdvertisementList().size() == 2 || Const.cache.getAdvertisementList().size() == 3) {
-			mImageViews = new ImageView[Const.cache.getAdvertisementList().size() * 2];
+		if (Const.cache.getAdvertisementList().size() == 2
+				|| Const.cache.getAdvertisementList().size() == 3) {
+			mImageViews = new ImageView[Const.cache.getAdvertisementList()
+					.size() * 2];
 		} else {
-			mImageViews = new ImageView[Const.cache.getAdvertisementList().size()];
+			mImageViews = new ImageView[Const.cache.getAdvertisementList()
+					.size()];
 		}
 		for (int i = 0; i < mImageViews.length; i++) {
 			ImageView imageView = new ImageView(getActivity());
-			((BaseActivity) getActivity()).loadOnRectangleImage(
-					Const.BASE_URL
-							+ Const.cache.getAdvertisementList().get(
-									i > (Const.cache.getAdvertisementList().size() - 1) ? i
-											- Const.cache.getAdvertisementList().size() : i)
-									.getAdFile(), imageView);
+			((BaseActivity) getActivity())
+					.loadOnRectangleImage(
+							Const.BASE_URL
+									+ Const.cache
+											.getAdvertisementList()
+											.get(i > (Const.cache
+													.getAdvertisementList()
+													.size() - 1) ? i
+													- Const.cache
+															.getAdvertisementList()
+															.size()
+													: i).getAdFile(), imageView);
 			imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 			mImageViews[i] = imageView;
 		}

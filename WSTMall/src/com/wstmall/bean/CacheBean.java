@@ -82,6 +82,14 @@ public class CacheBean implements Serializable {
 		this.tokenId = tokenId;
 		Const.isNeedSaveCache = true;
 	}
+	
+	/**
+	 * 
+	 * 返回数据goodsAttrId字段值为null，
+	 * 该字段用于同类商品添加到购物车数量不+1
+	 * 
+	 * @param bean
+	 */
 	//购物车数据缓存
 	public void addShoppingCartList(GoodsListBean bean) {
 		shoppingCartSum++;
@@ -89,11 +97,13 @@ public class CacheBean implements Serializable {
 			shoppingCartList = new ArrayList<GoodsListBean>();
 		}
 		flag = true;
+		Log.e("goodslistbean", bean.toString());
 		for (int i = 0; i < Const.cache.shoppingCartList.size(); i++) {
 			if (Const.cache.shoppingCartList.get(i).goodsId
-					.equals(bean.goodsId)&&
-					Const.cache.shoppingCartList.get(i).goodsAttrId
-					.equals(bean.goodsAttrId)) {
+					.equals(bean.goodsId)
+//					&&Const.cache.shoppingCartList.get(i).goodsAttrId.equals(bean.goodsAttrId)
+					)
+			{
 				Log.i(TAG, "购物车存在相同商品");
 				Const.cache.shoppingCartList.get(i).goodscount = Const.cache.shoppingCartList
 						.get(i).goodscount + 1;

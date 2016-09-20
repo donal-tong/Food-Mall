@@ -50,4 +50,37 @@ public class GoodsListBean implements Serializable{
 	public void Setchild(boolean cbchild){
 		this.cbchild=cbchild;
 	}
+	 @Override
+	    public String toString() {
+	        return "GoodsListBean{" +
+	                "shopName='" + shopName + '\'' +
+	                ", shopId='" + shopId + '\'' +
+	                ", goodsId='" + goodsId + '\'' +
+	                ", goodsName='" + goodsName + '\'' +
+	                ", goodsThums='" + goodsThums + '\'' +
+	                ", shopPrice='" + shopPrice + '\'' +
+	                ", userDistance=" + userDistance +
+	                ", deliveryStartMoney=" + deliveryStartMoney +
+	                ", deliveryFreeMoney=" + deliveryFreeMoney +
+	                ", score=" + score +
+	                ", goodsAttrId='" + goodsAttrId + '\'' +
+	                ", goodsStock=" + goodsStock +
+	                ", goodsSn='" + goodsSn + '\'' +
+	                ", isBook=" + isBook +
+	                ", goodscount=" + goodscount +
+	                ", cbchild=" + cbchild +
+	                ", attrVal='" + attrVal + '\'' +
+	                ", attrName='" + attrName + '\'' +
+	                ", goodsSpec='" + goodsSpec + '\'' +
+	                ", goodsUnit='" + goodsUnit + '\'' +
+	                ", appraiseNum='" + appraiseNum + '\'' +
+	                ", totalMoney=" + totalMoney +
+	                ", goodsNum=" + goodsNum +
+	                ", goodsPrice=" + goodsPrice +
+	                ", priceAttrName='" + priceAttrName + '\'' +
+	                ", priceAttrVal='" + priceAttrVal + '\'' +
+	                ", priceAttrs=" + priceAttrs +
+	                ", attrs=" + attrs +
+	                '}';
+	    }
 }
