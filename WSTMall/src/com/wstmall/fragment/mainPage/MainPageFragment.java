@@ -31,6 +31,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.zhy_9.food_test.R;
 import com.wstmall.activity.BaseActivity;
+import com.wstmall.activity.MainActivity;
 import com.wstmall.activity.brands.BrandsActivity;
 import com.wstmall.activity.goodlist.GoodListActivity;
 import com.wstmall.activity.nearbybusiness.NearbyBusinessActivity;
@@ -185,7 +186,7 @@ public class MainPageFragment extends BaseFragment implements
 	@Override
 	public void bindDataForUIElement() {
 		mainPageFragment = this;
-		tWidget.changeMode(tWidget.Location_Search_Zbar_Mode);
+		tWidget.changeMode(tWidget.Left_Search_Right_Mode);
 		initAdvertisement();
 		initMeun();
 		lv_main_pager.addView(menuView);
@@ -290,8 +291,9 @@ public class MainPageFragment extends BaseFragment implements
 		Intent intent;
 		switch (v.getId()) {
 		case R.id.nearby_businesses:
-			intent = new Intent(getActivity(), NearbyBusinessActivity.class);
-			startActivity(intent);
+			MainActivity.mHost.setCurrentTab(1);
+//			intent = new Intent(getActivity(), NearbyBusinessActivity.class);
+//			startActivity(intent);
 			break;
 		case R.id.brand_hall:
 			intent = new Intent(getActivity(), BrandsActivity.class);

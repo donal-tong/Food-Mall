@@ -12,17 +12,20 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.zhy_9.food_test.R;
+import com.amap.api.mapcore.util.i;
 import com.wstmall.adapter.MyBaseAdapter;
 import com.wstmall.api.goods.GetGoodsCats;
 import com.wstmall.application.GoodsKinds;
@@ -48,10 +51,13 @@ public class SortFragment extends BaseFragment {
 		request(getGoodsCats);
 	}
 
+	SortLeftAdapter adapter;
+	
 	@SuppressLint("NewApi")
 	private void initSortList() {
-		left_listView.setAdapter(new SortLeftAdapter(getActivity(),
-				GoodsKinds.goodsKindsList));
+		adapter = new SortLeftAdapter(getActivity(),
+				GoodsKinds.goodsKindsList);
+		left_listView.setAdapter(adapter);
 
 		for (int i = 0; i < GoodsKinds.goodsKindsList.size(); i++) {
 			sortRightList.add(new SortRightFragment(GoodsKinds.goodsKindsList
@@ -68,19 +74,19 @@ public class SortFragment extends BaseFragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-//				 lastLeftSelectView.setBackgroundResource(R.color.white);
-				 
+//				lastLeftSelectView.setBackgroundResource(R.color.white);
 				TextView lasttv = (TextView) lastLeftSelectView
 						.findViewById(R.id.title_side);
 //				lasttv.setTextColor(Color.parseColor("#000000"));
 				lastLeftSelectPosition = position;
+				adapter.notifyDataSetChanged();
 //				view.setBackgroundResource(R.color.sort_grey);
 				TextView tv = (TextView) view.findViewById(R.id.title_side);
 //				tv.setTextColor(Color.parseColor("#FF6666"));
 //				tv.setBackgroundColor(Color.parseColor("white"));
 //				tv.setBackgroundColor(Color.WHITE);
 				lastLeftSelectView = view;
-				lastLeftSelectView.setBackgroundColor(Color.WHITE);
+//				lastLeftSelectView.setBackgroundColor(Color.WHITE);
 				FragmentTransaction fragmentTransaction = getChildFragmentManager()
 						.beginTransaction();
 				fragmentTransaction.replace(R.id.right_list,
@@ -135,6 +141,7 @@ public class SortFragment extends BaseFragment {
 				holder = new ViewHolder();
 				holder.title_side = (TextView) convertView
 						.findViewById(R.id.title_side);
+				holder.flagView = (ImageView) convertView.findViewById(R.id.list_flag);
 				convertView.setTag(holder);
 			} else {
 				holder = (ViewHolder) convertView.getTag();
@@ -158,12 +165,18 @@ public class SortFragment extends BaseFragment {
 					&& position == lastLeftSelectPosition) {
 				lastLeftSelectView = convertView;
 			}
+			if (lastLeftSelectPosition == position) {
+				holder.flagView.setVisibility(View.VISIBLE);
+			}else {
+				holder.flagView.setVisibility(View.GONE);
+			}
 
 			return convertView;
 		}
 
 		private class ViewHolder {
 			TextView title_side;
+			ImageView flagView;
 		}
 
 	}

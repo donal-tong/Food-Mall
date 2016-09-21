@@ -101,7 +101,7 @@ public class CacheBean implements Serializable {
 		for (int i = 0; i < Const.cache.shoppingCartList.size(); i++) {
 			if (Const.cache.shoppingCartList.get(i).goodsId
 					.equals(bean.goodsId)
-//					&&Const.cache.shoppingCartList.get(i).goodsAttrId.equals(bean.goodsAttrId)
+					&&Const.cache.shoppingCartList.get(i).goodsAttrId.equals(bean.goodsAttrId)
 					)
 			{
 				Log.i(TAG, "购物车存在相同商品");

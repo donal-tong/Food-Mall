@@ -36,23 +36,23 @@ import com.wstmall.bean.Point;
 
 /**
  * 
- *     调用方法： Intent intent = new
- *     Intent(getActivity(),SelectLocationActivity.class);
- *     intent.putExtra(SelectLocationActivity.Latitude, latitude);
- *     intent.putExtra(SelectLocationActivity.Longitude, longitude)
- *     getActivity().startActivityForResult(intent,
- *     SelectLocationActivity.sign_SelectLocationActivity);
+ * 调用方法： Intent intent = new Intent(getActivity(),SelectLocationActivity.class);
+ * intent.putExtra(SelectLocationActivity.Latitude, latitude);
+ * intent.putExtra(SelectLocationActivity.Longitude, longitude)
+ * getActivity().startActivityForResult(intent,
+ * SelectLocationActivity.sign_SelectLocationActivity);
  * 
- *     返回 City SelectLocationActivity.City Point SelectLocationActivity.Point
+ * 返回 City SelectLocationActivity.City Point SelectLocationActivity.Point
  */
-public class SelectLocationActivity extends Activity implements OnClickListener, OnGeocodeSearchListener,
-		LocationSource, AMapLocationListener {
+public class SelectLocationActivity extends Activity implements
+		OnClickListener, OnGeocodeSearchListener, LocationSource,
+		AMapLocationListener {
 
 	public static final String Latitude = "latitude";
 	public static final String Longitude = "longitude";
 	public static final String Point = "point";
 	public static final String City = "city";
-	public static final String City2="city2";
+	public static final String City2 = "city2";
 	public static final int sign = 50;
 
 	private MapView mMapView;
@@ -78,8 +78,10 @@ public class SelectLocationActivity extends Activity implements OnClickListener,
 		cancelButton = (Button) findViewById(R.id.cancel);
 		okButton = (Button) findViewById(R.id.ok);
 
-		this.latitude = getIntent().getDoubleExtra(Latitude, Const.defaultPoint.getGeoLat());
-		this.longitude = getIntent().getDoubleExtra(Longitude, Const.defaultPoint.getGeoLng());
+		this.latitude = getIntent().getDoubleExtra(Latitude,
+				Const.defaultPoint.getGeoLat());
+		this.longitude = getIntent().getDoubleExtra(Longitude,
+				Const.defaultPoint.getGeoLng());
 		okButton.setOnClickListener(this);
 		cancelButton.setOnClickListener(this);
 
@@ -98,16 +100,18 @@ public class SelectLocationActivity extends Activity implements OnClickListener,
 				DisplayMetrics dm = new DisplayMetrics();
 				getWindowManager().getDefaultDisplay().getMetrics(dm);
 
-				marker = aMap.addMarker(new MarkerOptions().position(latlng).draggable(true));
+				marker = aMap.addMarker(new MarkerOptions().position(latlng)
+						.draggable(true));
 
-				marker.setPositionByPixels(dm.widthPixels / 2, (dm.heightPixels-getStatusBarHeight()) / 2);
+				marker.setPositionByPixels(dm.widthPixels / 2,
+						(dm.heightPixels - getStatusBarHeight()) / 2);
 
 			} catch (Exception e) {
 			}
 		}
 	}
 
-	//获取状态栏方法，几乎万能
+	// 获取状态栏方法，几乎万能
 	private int getStatusBarHeight() {
 
 		Class<?> c = null;
@@ -140,8 +144,10 @@ public class SelectLocationActivity extends Activity implements OnClickListener,
 			// 查找城市
 			GeocodeSearch geocodeSearch = new GeocodeSearch(this);
 			geocodeSearch.setOnGeocodeSearchListener(this);
-			LatLonPoint latLonPoint = new LatLonPoint(this.latitude, this.longitude);
-			RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200, GeocodeSearch.AMAP);
+			LatLonPoint latLonPoint = new LatLonPoint(this.latitude,
+					this.longitude);
+			RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200,
+					GeocodeSearch.AMAP);
 			geocodeSearch.getFromLocationAsyn(query);
 
 			break;
@@ -194,14 +200,18 @@ public class SelectLocationActivity extends Activity implements OnClickListener,
 	@Override
 	public void onRegeocodeSearched(RegeocodeResult result, int rCode) {
 		// TODO Auto-generated method stub
-		if (rCode == 0 && result != null && result.getRegeocodeAddress() != null
+		if (rCode == 0 && result != null
+				&& result.getRegeocodeAddress() != null
 				&& result.getRegeocodeAddress().getFormatAddress() != null) {
 			Point point = new Point(this.latitude, this.longitude);
-			City city = new City(Const.cache.city.getCityid(), result.getRegeocodeAddress().getCity());
-			if(city.getCityname().equals("")){
-				city = new City(Const.cache.city.getCityid(), result.getRegeocodeAddress().getProvince());
+			City city = new City(Const.cache.city.getCityid(), result
+					.getRegeocodeAddress().getCity());
+			if (city.getCityname().equals("")) {
+				city = new City(Const.cache.city.getCityid(), result
+						.getRegeocodeAddress().getProvince());
 			}
-			City city2= new City(Const.cache.city.getCityid(), result.getRegeocodeAddress().getDistrict());
+			City city2 = new City(Const.cache.city.getCityid(), result
+					.getRegeocodeAddress().getDistrict());
 			Intent intent = new Intent();
 			intent.putExtra(Point, point);
 			intent.putExtra(City, city);
@@ -224,7 +234,8 @@ public class SelectLocationActivity extends Activity implements OnClickListener,
 			// 注意设置合适的定位时间的间隔，并且在合适时间调用removeUpdates()方法来取消定位请求
 			// 在定位结束后，在合适的生命周期调用destroy()方法
 			// 其中如果间隔时间为-1，则定位只定一次
-			mAMapLocationManager.requestLocationData(LocationProviderProxy.AMapNetwork, 30 * 1000, 10, this);
+			mAMapLocationManager.requestLocationData(
+					LocationProviderProxy.AMapNetwork, 30 * 1000, 10, this);
 		}
 	}
 

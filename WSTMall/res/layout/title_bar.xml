@@ -3,7 +3,7 @@
     android:id="@+id/mainLayout"
     android:layout_width="fill_parent"
     android:layout_height="@dimen/title_bar_height"
-    android:background="#F6773A" >
+    android:background="#f5f5f5" >
 
     <RelativeLayout
         android:id="@+id/left"
@@ -30,20 +30,20 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_weight="0"
-        android:gravity="center_vertical"
+        android:layout_weight="1"
+        android:gravity="center"
         android:visibility="gone" >
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/location_icon" />
+            android:src="@drawable/location_new_icon" />
 
         <TextView
             android:id="@+id/title_city"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_size_large" />
     </LinearLayout>
     <LinearLayout
@@ -146,5 +146,20 @@
             android:clickable="false"
             android:singleLine="true" />
     </RelativeLayout>
+<RelativeLayout
+        android:id="@+id/right_search"
+        android:layout_width="@dimen/title_item_height"
+        android:layout_height="@dimen/title_item_width"
+        android:layout_weight="0"
+        android:background="@drawable/pressed_dark_bg"
+        android:visibility="gone" >
 
+        <ImageView 
+            android:id="@+id/right_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:clickable="false"
+            android:src="@drawable/search_icon"/>
+    </RelativeLayout>
 </LinearLayout>

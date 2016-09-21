@@ -33,12 +33,14 @@ public class TitleWidget extends RelativeLayout implements OnClickListener {
 	public static final int Location_Search_Zbar_Mode = 2;
 	public static final int Search_Mode=3;
 	public static final int Left_Search_Zbar_Mode=4;
+	public static final int Left_Search_Right_Mode = 5;
 	private Context mContext;
 	private boolean isChangeAlpha=false;
 	private View mView;
 	public View left;
 	public View center;
 	public View right;
+	public View rightSearch;
 
 	private Button left_view;
 	private TextView center_view;
@@ -77,6 +79,7 @@ public class TitleWidget extends RelativeLayout implements OnClickListener {
 		left = mView.findViewById(R.id.left);
 		center = mView.findViewById(R.id.center);
 		right = mView.findViewById(R.id.right);
+		rightSearch = mView.findViewById(R.id.right_search);
 
 		left_view = (Button) mView.findViewById(R.id.left_view);
 		center_view = (TextView) mView.findViewById(R.id.center_view);
@@ -92,6 +95,7 @@ public class TitleWidget extends RelativeLayout implements OnClickListener {
 		title_location.setOnClickListener(this);
 		title_search.setOnClickListener(this);
 		title_zbar.setOnClickListener(this);
+		rightSearch.setOnClickListener(this);
 	}
 
 	public void changeMode(int mode) {
@@ -118,6 +122,12 @@ public class TitleWidget extends RelativeLayout implements OnClickListener {
 			center.setVisibility(View.GONE);
 			title_zbar.setVisibility(View.VISIBLE);
 			title_search.setVisibility(View.VISIBLE);
+		}else if (mode == Left_Search_Right_Mode) {
+//			title_search.setVisibility(View.VISIBLE);
+			title_location.setVisibility(View.VISIBLE);
+			center.setVisibility(View.GONE);
+			right.setVisibility(View.GONE);
+			rightSearch.setVisibility(View.VISIBLE);
 		}
 	}
 	public void setTitleAlpha(int alphaValue){
@@ -129,9 +139,9 @@ public class TitleWidget extends RelativeLayout implements OnClickListener {
 		title_city.setText(Const.cache.city.getCityname());
 	}
 
-	public void setBackColor(String color) {
-		mainLaytou.setBackgroundColor(Color.parseColor(color));
-	}
+//	public void setBackColor(String color) {
+//		mainLaytou.setBackgroundColor(Color.parseColor(color));
+//	}
 	public void setSearchAnimaScla(){
 		title_zbar.startAnimation(SortFiled.getFadeOut());
 		title_location.startAnimation(SortFiled.getFadeOut());
@@ -168,7 +178,7 @@ public class TitleWidget extends RelativeLayout implements OnClickListener {
 		// TypedArray是一个数组容器
 		TypedArray array = mContext.obtainStyledAttributes(attrs, R.styleable.TitleBar);
 		leftBg = array.getDrawable(R.styleable.TitleBar_left_bg);
-		leftViewBg = array.getResourceId(R.styleable.TitleBar_left_view_bg, R.drawable.title_back);
+		leftViewBg = array.getResourceId(R.styleable.TitleBar_left_view_bg, R.drawable.back);
 		leftViewStr = array.getString(R.styleable.TitleBar_left_view_text);
 		leftVisibility = array.getString(R.styleable.TitleBar_left_visibility);
 		setLeftBg(leftBg);
@@ -375,6 +385,17 @@ public class TitleWidget extends RelativeLayout implements OnClickListener {
 			intent.putExtra(SelectLocationActivity.Latitude, Const.cache.point.getGeoLat());
 			intent.putExtra(SelectLocationActivity.Longitude, Const.cache.point.getGeoLng());
 			((Activity)mContext).startActivityForResult(intent,SelectLocationActivity.sign);
+			break;
+			
+		case R.id.right_search:
+			intent = new Intent(mContext, SearchActivity.class);
+			((Activity) mContext).startActivityForResult(intent, SearchActivity.sign);
+			if(((Activity) mContext).getClass().getName().equals("com.wstmall.activity.mainPage.MainPageActivity")){
+				Log.e("opopop", ((Activity) mContext).getClass()+"");
+				((Activity) mContext).getParent().overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+			}else{
+				((Activity) mContext).overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+			}
 			break;
 
 		default:
