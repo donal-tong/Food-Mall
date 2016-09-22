@@ -55,7 +55,7 @@ public class UserAdressAdapter extends BaseAdapter {
 		tv_telephone.setText(useradressbeanlist.get(position).getUserTel());
 		
 		TextView tv_area= (TextView) view.findViewById(R.id.tv_area);
-		tv_area.setText(useradressbeanlist.get(position).getAreaName());
+//		tv_area.setText(useradressbeanlist.get(position).getAreaName());
 		
 		TextView tv_adress= (TextView) view.findViewById(R.id.tv_adress);
 		tv_adress.setText(useradressbeanlist.get(position).getAddress());

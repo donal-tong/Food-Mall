@@ -171,7 +171,7 @@ public class ModifyAddAdressFragment extends BaseFragment implements
 		tWidget.setRightBtnText("删除");
 		//tWidget.setRightViewBg(R.drawable.file_delete);
 		setDefaultAdress();
-		setHeight();
+//		setHeight();
 	}
 
 	public void setHeight() {

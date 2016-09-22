@@ -41,6 +41,12 @@ public class EditUserInfoFragment extends BaseFragment implements View.OnClickLi
 	private View user_name_layout;
 	@InjectView(id = R.id.sex_layout)
 	private View sex_layout;
+	@InjectView(id = R.id.phone_layout)
+	private View phone_layout;
+	@InjectView(id = R.id.qq_layout)
+	private View qq_layout;
+	@InjectView(id = R.id.e_mail_layout)
+	private View e_mail_layout;
 
 	@InjectView(id = R.id.head_image)
 	private ImageView head_image;
@@ -51,6 +57,13 @@ public class EditUserInfoFragment extends BaseFragment implements View.OnClickLi
 	private TextView user_name;
 	@InjectView(id = R.id.sex)
 	private TextView sex;
+	@InjectView(id = R.id.phone)
+	private TextView phone;
+	@InjectView(id = R.id.qq)
+	private TextView qq;
+	@InjectView(id = R.id.e_mail)
+	private TextView e_mail;
+	
 
 	@Override
 	public void onClick(View v) {
@@ -64,6 +77,16 @@ public class EditUserInfoFragment extends BaseFragment implements View.OnClickLi
 			break;
 		case R.id.sex_layout:
 			replaceFragment(new ChangeSexFragment(), true);
+			break;
+		case R.id.phone_layout:
+			
+			break;
+			
+		case R.id.qq_layout:
+			
+			break;
+		case R.id.e_mail_layout:
+			
 			break;
 		}
 	}

@@ -388,6 +388,7 @@ public class TitleWidget extends RelativeLayout implements OnClickListener {
 			break;
 			
 		case R.id.right_search:
+//			changeMode(Search_Mode);
 			intent = new Intent(mContext, SearchActivity.class);
 			((Activity) mContext).startActivityForResult(intent, SearchActivity.sign);
 			if(((Activity) mContext).getClass().getName().equals("com.wstmall.activity.mainPage.MainPageActivity")){

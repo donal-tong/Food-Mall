@@ -238,7 +238,7 @@ public class MainPageFragment extends BaseFragment implements
 		self_supermarket.setOnClickListener(this);
 		my_order.setOnClickListener(this);
 		swipeRefreshLayout.setOnRefreshListener(listener);
-		tWidget.setChageAlpha();
+//		tWidget.setChageAlpha();
 		swipeRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
 
 			@Override

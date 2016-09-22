@@ -3,11 +3,13 @@ package com.wstmall.fragment.user;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Base64;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,6 +72,9 @@ public class AccountSecurityFragment extends BaseFragment implements View.OnClic
 	public void bindDataForUIElement() {
 		// TODO Auto-generated method stub
 		tWidget.setCenterViewText("修改密码");
+		tWidget.setRightBtnText("保存");
+		tWidget.setRightViewBg(R.color.red_app);
+		((Button)tWidget.getRightView()).setTextColor(Color.WHITE);
 		bt_change_account.setEnabled(false);
 	}
 

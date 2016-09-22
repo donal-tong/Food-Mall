@@ -23,12 +23,7 @@
                 android:layout_below="@+id/seller_manager_title"
                 android:background="@color/separate_line" />
 
-            <com.wstmall.widget.TitleWidget
-                android:id="@id/titleBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                showu:center_view_text="@string/app_name"
-                showu:right_visibility="invisible" />
+            
 
             <RelativeLayout
                 android:id="@+id/seller_user_img_layout"

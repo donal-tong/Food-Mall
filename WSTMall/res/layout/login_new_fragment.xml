@@ -51,10 +51,10 @@
         android:textColorHint="#aaaaaa"
         android:drawableLeft="@drawable/user_name_icon"
         android:layout_below="@+id/login_top_logo"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
-        android:drawablePadding="5dp"
+        android:drawablePadding="10dp"
         android:background="@drawable/login_selector"
         android:paddingBottom="12dp"/>
     <EditText
@@ -62,11 +62,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/fragment_login_name"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
         android:hint="密码"
         android:textColorHint="#aaaaaa"
         android:drawableLeft="@drawable/login_password_icon"
-        android:drawablePadding="5dp"
+        android:drawablePadding="10dp"
         android:background="@drawable/login_selector"
         android:paddingBottom="12dp"/>
 
@@ -75,11 +77,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/fragment_login_psw"
-        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:hint="验证码"
         android:textColorHint="#aaaaaa"
         android:drawableLeft="@drawable/login_verify_icon"
-        android:drawablePadding="5dp"
+        android:drawablePadding="10dp"
         android:background="@drawable/login_selector"
         android:paddingBottom="12dp"/>
 
@@ -91,7 +95,9 @@
         android:text="登 录"
         android:textColor="@color/white"
         android:background="@drawable/gradient_button"
-        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textSize="22sp"/>
 
     <TextView
@@ -100,7 +106,8 @@
         android:layout_height="wrap_content"
         android:text="首页"
         android:layout_below="@+id/fragment_login_login"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
         android:textColor="#000000"
         android:drawableLeft="@drawable/login_home_icon"
         android:drawablePadding="5dp"/>
@@ -121,7 +128,8 @@
         android:layout_height="wrap_content"
         android:text="| 忘记密码"
         android:layout_below="@+id/fragment_login_login"
-        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
         android:layout_alignParentRight="true"
         android:textColor="#000000"/>
 
@@ -131,14 +139,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/back_to_home"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="30dp">
 
         <View
             android:layout_width="wrap_content"
             android:layout_height="1dp"
             android:layout_weight="1"
             android:background="#c1c1c1"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="30dp"
             android:layout_gravity="center"/>
 
         <TextView
@@ -157,7 +165,7 @@
             android:background="#c1c1c1"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="30dp"/>
 
 
     </LinearLayout>

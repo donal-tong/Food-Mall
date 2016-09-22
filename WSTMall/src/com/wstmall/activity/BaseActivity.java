@@ -301,7 +301,8 @@ public abstract class BaseActivity extends Activity {
 		if (isAddToBackStack) {
 			transaction.addToBackStack(tag);
 		}
-		transaction.commitAllowingStateLoss();
+//		transaction.commitAllowingStateLoss();
+		transaction.commit();
 	}
 
 	public void popFragement() {

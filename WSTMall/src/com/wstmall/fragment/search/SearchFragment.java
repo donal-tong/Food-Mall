@@ -49,7 +49,7 @@ public class SearchFragment extends BaseFragment {
 		tWidget.changeMode(tWidget.Search_Mode);
 		//tWidget.setRightBtnText("搜索");
 		//tWidget.right.setVisibility(View.VISIBLE);
-		tWidget.setSearchAnimaScla();
+//		tWidget.setSearchAnimaScla();
 		tWidget.title_search_edittext.setFocusable(true);
 	}
 

@@ -9,12 +9,20 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
+        <com.wstmall.widget.TitleWidget
+            android:id="@id/titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            showu:center_view_text="首页"
+            showu:left_visibility="visible"
+            showu:right_visibility="invisible" />
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/bottom_tabs_height" >
+            android:layout_marginBottom="@dimen/bottom_tabs_height"
+            android:layout_below="@id/titleBar" >
 
             <com.wstmall.widget.ObservableScrollView
                 android:id="@+id/pl_scrollVeiw"
@@ -30,13 +38,7 @@
             </com.wstmall.widget.ObservableScrollView>
         </android.support.v4.widget.SwipeRefreshLayout>
 
-        <com.wstmall.widget.TitleWidget
-            android:id="@id/titleBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            showu:center_view_text="首页"
-            showu:left_visibility="visible"
-            showu:right_visibility="invisible" />
+        
     </RelativeLayout>
 
 </LinearLayout>

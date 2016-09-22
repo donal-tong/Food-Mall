@@ -92,6 +92,8 @@ public class ShippingAdressFragment extends BaseFragment {
 		// TODO Auto-generated method stub
 		tWidget.setCenterViewText("我的地址");
 		tWidget.right.setVisibility(View.VISIBLE);
+		tWidget.setRightBtnText("新增");
+		tWidget.setRightViewBg(R.drawable.title_right_selector);
 		useradressbeanlist = new ArrayList<UserAdressBean>();
 		getuseraddress = new GetUserAddress();
 		getuseraddress.tokenId = Const.cache.getTokenId();
